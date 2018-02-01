@@ -616,18 +616,6 @@ var App = function () {
         });
     };
 
-    // Add the correct copyright year
-    var uiYearCopy = function () {
-        var $date = new Date();
-        var $yearCopy = jQuery('.js-year-copy');
-
-        if ($date.getFullYear() === 2015) {
-            $yearCopy.html('2015');
-        } else {
-            $yearCopy.html('2015-' + $date.getFullYear().toString().substr(2, 2));
-        }
-    };
-
     // Manage page loading screen functionality
     var uiLoader = function ($mode) {
         var $lpageLoader = jQuery('#page-loader');

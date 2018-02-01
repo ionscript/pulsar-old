@@ -26,7 +26,7 @@
                     <abbr title="Phone">P:</abbr> (123) 456-7890
                 </div>
                 <div class="font-s13">
-                    <i class="si si-envelope-open"></i> company@example.com
+                    <i class="icon-envelope-open"></i> company@example.com
                 </div>
             </div>
         </div>

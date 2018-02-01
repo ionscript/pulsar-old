@@ -29,7 +29,7 @@ $(document).ready(function() {
 							$('#modal-image').remove();
 						
 							$.ajax({
-								url: 'common/filemanager?token=' + getURLVar('token'),
+								url: 'filemanager?token=' + getURLVar('token'),
 								dataType: 'html',
 								beforeSend: function() {
 									$('#button-image i').replaceWith('<i class="fa fa-circle-o-notch fa-spin"></i>');

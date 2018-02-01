@@ -64,7 +64,7 @@
                 <ul class="block-options">
                     <li>
                         <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i
-                                    class="si si-size-fullscreen"></i></button>
+                                    class="icon-size-fullscreen"></i></button>
                     </li>
                 </ul>
                 <div class="block-title text-normal">

@@ -10,16 +10,11 @@
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
 
-<script>
-    $(function(){
-        App.initHelpers(['summernote']);
-        App.initHelpers(['datepicker', 'select2', 'tags-inputs']);
-        App.initHelpers(['table-tools']);
-        App.initHelpers('magnific-popup');
-        App.initHelpers('notify');
-        App.initHelpers('draggable-items');
-    });
-</script>
+<!--<script>-->
+<!--    $(function(){-->
+<!--        App.init();-->
+<!--    });-->
+<!--</script>-->
 
 </body>
 </html>

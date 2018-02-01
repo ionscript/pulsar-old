@@ -21,20 +21,26 @@
     <?php foreach ($links as $link) { ?>
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
+    <!-- OneUI CSS framework -->
+    <link rel="stylesheet" id="css-main" href="css/app.css">
 
     <?php if ($theme) { ?>
         <link rel="stylesheet" id="css-theme" href="css/themes/<?php echo $theme; ?>.min.css">
     <?php } ?>
     <!-- END Stylesheets -->
 
-    <!-- OneUI CSS framework -->
-    <link rel="stylesheet" id="css-main" href="css/app.css">
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+
+    <?php foreach ($scripts as $script) { ?>
+        <script type="text/javascript" src="<?php echo $script; ?>"></script>
+    <?php } ?>
 </head>
 <body>
 
 <!-- Page Container -->
 <div id="page-container" class="<?php echo $page_classes; ?>">
-<?php echo $sidebar_overlay; ?>
 <?php echo $sidebar; ?>
     <!-- Header -->
     <header id="header-navbar" class="content-mini content-mini-full">
@@ -53,31 +59,31 @@
                         <li class="dropdown-header">Profile</li>
                         <li>
                             <a tabindex="-1" href="base_pages_inbox.php">
-                                <i class="si si-envelope-open pull-right"></i>
+                                <i class="icon-envelope-open pull-right"></i>
                                 <span class="badge badge-primary pull-right">3</span>Inbox
                             </a>
                         </li>
                         <li>
                             <a tabindex="-1" href="<?php echo $admin_profile; ?>">
-                                <i class="si si-admin pull-right"></i>
+                                <i class="icon-admin pull-right"></i>
                                 <span class="badge badge-success pull-right">1</span>Profile
                             </a>
                         </li>
                         <li>
                             <a tabindex="-1" href="javascript:void(0)">
-                                <i class="si si-settings pull-right"></i>Settings
+                                <i class="icon-settings pull-right"></i>Settings
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Actions</li>
                         <li>
                             <a tabindex="-1" href="http://i2cart">
-                                <i class="si si-basket pull-right"></i>Store
+                                <i class="icon-basket pull-right"></i>Store
                             </a>
                         </li>
                         <li>
                             <a tabindex="-1" href="base_pages_login.php">
-                                <i class="si si-logout pull-right"></i>Log out
+                                <i class="icon-logout pull-right"></i>Log out
                             </a>
                         </li>
                     </ul>

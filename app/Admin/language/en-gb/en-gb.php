@@ -25,6 +25,7 @@ $_['text_loading']                  = 'Loading...';
 $_['text_no_results']               = 'No results!';
 $_['text_confirm']                  = 'Are you sure?';
 $_['text_dashboard']                = 'Dashboard';
+$_['text_home']                     = 'Home';
 
 // Button
 $_['button_add']                    = 'Add New';
@@ -81,3 +82,12 @@ $_['tab_google']                    = 'Google';
 $_['tab_user']                      = 'User';
 $_['tab_password']                  = 'Password';
 $_['tab_access']                    = 'Access';
+
+// Column
+$_['column_name']                   = 'Name';
+$_['column_title']                  = 'Title';
+$_['column_image']                  = 'Image';
+$_['column_added']                  = 'Date Added';
+$_['column_modified']               = 'Modified';
+$_['column_status']                 = 'Status';
+$_['column_action']                 = 'Action';

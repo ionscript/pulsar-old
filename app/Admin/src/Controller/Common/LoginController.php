@@ -48,15 +48,12 @@ class LoginController extends Controller
             $data['password'] = '';
         }
 
-        /*return*/ $this->response->setContent($this->view('common/login', $data));
+        $this->response->setContent($this->view('common/login', $data));
     }
 
     protected function validate()
     {
-        if (!$this->request->hasPost('username')
-            || !$this->request->hasPost('password')
-            || !$this->user->login($this->request->getPost('username'), null, html_entity_decode($this->request->getPost('password'), ENT_QUOTES, 'UTF-8'))
-        ) {
+        if (!$this->request->hasPost('username') || !$this->request->hasPost('password') || !$this->user->login($this->request->getPost('username'), null, html_entity_decode($this->request->getPost('password'), ENT_QUOTES, 'UTF-8'))) {
             $this->error = $this->language->get('error_login');
         } else {
             if(strlen($this->request->getPost('username')) < 3 || strlen($this->request->getPost('password')) < 4) {
@@ -70,9 +67,7 @@ class LoginController extends Controller
     protected function token($length = 32)
     {
         $string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
         $max = strlen($string) - 1;
-
         $token = '';
 
         for ($i = 0; $i < $length; $i++) {
@@ -85,9 +80,7 @@ class LoginController extends Controller
     public function logout()
     {
         $this->user->logout();
-
         $this->session->delete('token');
-
         $this->response->redirect($this->url->link('login'));
     }
 }

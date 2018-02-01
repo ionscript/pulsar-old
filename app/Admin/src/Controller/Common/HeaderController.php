@@ -21,6 +21,7 @@ class HeaderController extends Controller
         $this->document->addStyle('vendor/sweetalert/dist/sweetalert.css');
         $this->document->addStyle('vendor/select2/dist/css/select2.css');
         $this->document->addStyle('vendor/summernote/dist/summernote.css');
+        $this->document->addStyle('vendor/fontawesome/css/font-awesome.css');
 
         $data['description'] = $this->document->getDescription();
         $data['keywords'] = $this->document->getKeywords();
@@ -41,7 +42,6 @@ class HeaderController extends Controller
 
         // Layout
         $data['sidebar'] = $this->controller('sidebar');
-        $data['sidebar_overlay'] = $this->controller('sidebar_overlay');
         //END Layout
 
         return $this->view('common/header', $data);

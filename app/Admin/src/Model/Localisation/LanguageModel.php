@@ -8,7 +8,7 @@ class LanguageModel extends Model
 {
     public function addLanguage($data)
     {
-        $this->db->query("INSERT INTO `language` SET `name` = " . $this->db->escape($data['name']) . ", `code` = " . $this->db->escape($data['code']) . ", `locale` = " . $this->db->escape($data['locale']) . ", `sort_order` = " . $this->db->escape($data['sort_order']) . ", `status` = '" . (int)$data['status'] . "'");
+        $this->db->execute("INSERT INTO `language` SET `name` = " . $this->db->escape($data['name']) . ", `code` = " . $this->db->escape($data['code']) . ", `locale` = " . $this->db->escape($data['locale']) . ", `sort_order` = " . $this->db->escape($data['sort_order']) . ", `status` = '" . (int)$data['status'] . "'");
 
         $this->cache->remove('language');
 
@@ -65,7 +65,7 @@ class LanguageModel extends Model
         if (!$language_data) {
             $language_data = [];
 
-            $query = $this->db->query('SELECT * FROM `language` ORDER BY sort_order, name');
+            $query = $this->db->query('SELECT * FROM `language` ORDER BY sort_order, `name`');
 
             foreach ($query->rows as $result) {
                 $language_data[$result['code']] = [
@@ -73,8 +73,6 @@ class LanguageModel extends Model
                     'name' => $result['name'],
                     'code' => $result['code'],
                     'locale' => $result['locale'],
-                    'image' => $result['image'],
-                    'directory' => $result['directory'],
                     'sort_order' => $result['sort_order'],
                     'status' => $result['status']
                 ];

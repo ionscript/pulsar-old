@@ -13,6 +13,7 @@ return [
     ],
     'config' => [
         'config_modification' => true,
+        'config_admin_language' => 'en-gb',
         'config_error_log' => true,
         'config_error_display' => true,
         'config_view_theme' => 'default',

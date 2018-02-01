@@ -40,18 +40,17 @@ class BootstrapListener implements ListenerInterface
         $session->start();
 
         // Language
-        $language = $services->get('language');
-        $language->setLanguage($config->get('config_admin_language'));
-        $language->setDirectory('app/' .$services->get('app')->getName() . '/language');
-        $language->load();
-
         $query = $db->query('SELECT * FROM `language` WHERE code = ' . $db->escape($config->get('config_admin_language')));
 
         if ($query->count) {
             $config->offsetSet('config_language_id', $query->row['id']);
         }
 
-        $language->load($config->get('config_admin_language'));
+        $language = $services->get('language');
+        $language->setLanguage($config->get('config_admin_language'));
+        $language->setDirectory('app/' .$services->get('app')->getName() . '/language');
+        $language->load();
+
 
         // Compression
         $response = $services->get('response');

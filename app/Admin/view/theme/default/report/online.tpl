@@ -38,10 +38,10 @@
             <div class="block-header bg-gray-lighter">
                 <ul class="block-options">
                     <li>
-                        <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                        <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="icon-refresh"></i></button>
                     </li>
                     <li>
-                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                        <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="icon-size-fullscreen"></i></button>
                     </li>
                 </ul>
                 <div class="block-title text-normal">

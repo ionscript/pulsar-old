@@ -15,7 +15,7 @@
                 <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
                 <div class="btn-group pull-right">
                     <button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">
-                        <i class="si si-drop"></i>
+                        <i class="icon-drop"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right font-s13 sidebar-mini-hide">
                         <li>
