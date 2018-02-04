@@ -95,7 +95,7 @@
                                 <label class="col-xs-12"><?php echo $entry_status; ?>?</label>
                                 <div class="col-xs-12">
                                     <label class="css-input switch switch-sm switch-primary">
-                                        <input type="checkbox" name="module_banner_status" <?php echo $status ? 'checked' : ''; ?> value="1"><span></span>
+                                        <input type="checkbox" name="status" <?php echo $status ? 'checked' : ''; ?> value="1"><span></span>
                                     </label>
                                 </div>
                             </div>

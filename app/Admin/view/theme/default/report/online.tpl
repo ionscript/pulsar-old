@@ -100,8 +100,3 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-<script>
-    jQuery(function () {
-        App.initHelpers(['appear', 'appear-countTo']);
-    });
-</script>

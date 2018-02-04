@@ -20,7 +20,7 @@ class HomeController extends Controller
         $this->document->addScript('vendor/jquery.placeholder/jquery.placeholder.js', 'footer');
         $this->document->addScript('vendor/jquery.appear.bas2k/jquery.appear.js', 'footer');
         $this->document->addScript('vendor/jquery-slimscroll/jquery.slimscroll.js', 'footer');
-        $this->document->addScript('vendor/jquery-scrollLock/jquery-scrollLock.js', 'footer');
+       $this->document->addScript('vendor/jquery-scrollLock/jquery-scrollLock.js', 'footer');
         $this->document->addScript('vendor/js-cookie/src/js.cookie.js', 'footer');
         $this->document->addScript('vendor/vide/dist/jquery.vide.js', 'footer');
 
