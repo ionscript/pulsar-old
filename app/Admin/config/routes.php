@@ -182,13 +182,6 @@ return [
             'action' => 'index'
         ],
     ],
-    'extension/dashboard/map' => [
-        'route' => '/admin/extension/dashboard/map[/:action]',
-        'defaults' => [
-            'controller' => \Admin\Extension\Dashboard\MapController::class,
-            'action' => 'index'
-        ],
-    ],
     'extension/dashboard/online' => [
         'route' => '/admin/extension/dashboard/online[/:action]',
         'defaults' => [

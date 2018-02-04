@@ -544,7 +544,7 @@ var App = function () {
 
             jQuery($el.data('target').toString()).toggleClass($el.data('class').toString());
 
-            if ($lHtml.hasClass('no-focus')) {
+            if ($html.hasClass('no-focus')) {
                 $el.blur();
             }
         });
@@ -645,7 +645,7 @@ var App = function () {
             }
 
             // Remove focus from submenu link
-            if ($lHtml.hasClass('no-focus')) {
+            if ($html.hasClass('no-focus')) {
                 $link.blur();
             }
         });
@@ -686,7 +686,7 @@ var App = function () {
 
             layout($btn.data('action'));
 
-            if ($lHtml.hasClass('no-focus')) {
+            if ($html.hasClass('no-focus')) {
                 $btn.blur();
             }
         });

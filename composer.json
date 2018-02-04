@@ -1,5 +1,5 @@
 {
-  "name": "ions/pulsar",
+  "name": "ionscript/pulsar",
   "description": "A lightweight PHP library for a modern web application.",
   "minimum-stability": "dev",
   "license": "GPL-3.0+",
@@ -37,57 +37,18 @@
     ]
   },
   "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-mvc.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-event.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-http.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-config.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-db.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-mail.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-compress.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-cache.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-log.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-route.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-session.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-uri.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/ionscript/ions-std.git"
-    }
+    {"type": "git", "url": "https://github.com/ionscript/ions-mvc.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-event.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-http.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-config.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-db.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-mail.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-compress.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-cache.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-log.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-route.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-session.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-uri.git"},
+    {"type": "git", "url": "https://github.com/ionscript/ions-std.git"}
   ]
 }

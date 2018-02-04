@@ -21,8 +21,7 @@ return [
     ],
     'session' => [
         'name' => 'PHPSESSID',
-        'path' => __DIR__ . '/../storage/session',
-//        'lifetime' => 10
+        'path' => __DIR__ . '/../storage/session'
     ],
     'log' => [
         'filename' => 'error.log',

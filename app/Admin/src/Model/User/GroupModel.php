@@ -8,7 +8,7 @@ class GroupModel extends Model
 {
     public function addUserGroup($data)
     {
-        $this->db->execute("INSERT INTO user_group SET approval = '" . (int)$data['approval'] . "', `permission` = " . $this->db->escape(json_encode($data['permission'])));
+        $this->db->execute("INSERT INTO user_group SET approval = '" . (!isset($data['approval']) ? 0 : (int)$data['approval']) . "', `permission` = " . $this->db->escape(json_encode($data['permission'])));
 
         $id = $this->db->getLastId();
 
@@ -21,7 +21,7 @@ class GroupModel extends Model
 
     public function editUserGroup($id, $data)
     {
-        $this->db->execute("UPDATE user_group SET approval = '" . (int)$data['approval'] . "', `permission` = " . $this->db->escape(json_encode($data['permission'])) . " WHERE id = '" . (int)$id . "'");
+        $this->db->execute("UPDATE user_group SET approval = '" . (!isset($data['approval']) ? 0 : (int)$data['approval']) . "', `permission` = " . $this->db->escape(json_encode($data['permission'])) . " WHERE id = '" . (int)$id . "'");
 
         $this->db->execute("DELETE FROM user_group_description WHERE group_id = '" . (int)$id . "'");
 

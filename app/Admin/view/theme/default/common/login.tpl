@@ -15,11 +15,11 @@
     <link rel="stylesheet" id="css-main" href="css/app.css">
     <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
-<!--    <script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery.placeholder/jquery.placeholder.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery-slimscroll/jquery.slimscroll.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery-scrollLock/jquery-scrollLock.js"></script>-->
+    <script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="vendor/jquery.placeholder/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="vendor/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="vendor/jquery-scrollLock/jquery-scrollLock.js"></script>
     <script type="text/javascript" src="js/admin.app.js"></script>
 </head>
 <body>
