@@ -42,6 +42,8 @@ class NoFooterController extends Controller
             $this->model('tool/online')->addOnline($ip, $this->user->getId(), $url, $referer);
         }
 
+        $this->document->addScript('js/app.js', 'footer');
+
         $data['scripts'] = $this->document->getScripts('footer');
 
         return $this->view('common/no_footer', $data);

@@ -14,26 +14,39 @@
     <?php if($meta_keywords) { ?>
     <meta name="keywords" content="<?php echo $meta_keywords; ?>" />
     <?php } ?>
+
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="img/favicons/favicon.png">
+    <!-- END Icons -->
+
+    <!-- Web fonts -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <!-- END Web fonts -->
+
+    <!-- Stylesheets -->
     <?php foreach ($styles as $style) { ?>
-    <link type="text/css" href="<?php echo $style['href']; ?>" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>"/>
+        <link type="text/css" href="<?php echo $style['href']; ?>" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>"/>
     <?php } ?>
-    <?php foreach ($scripts as $script) { ?>
-    <script src="<?php echo $script; ?>" type="text/javascript"></script>
+    <?php foreach ($links as $link) { ?>
+        <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
-
-
+    <!-- OneUI CSS framework -->
     <link rel="stylesheet" id="css-main" href="css/oneui.css">
 
     <?php if ($theme) { ?>
         <link rel="stylesheet" id="css-theme" href="css/themes/<?php echo $theme; ?>.min.css">
     <?php } ?>
+    <!-- END Stylesheets -->
 
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
 
-
-    <?php foreach ($links as $link) { ?>
-    <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
+    <?php foreach ($scripts as $script) { ?>
+        <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
+
     <?php foreach ($analytics as $analytic) { ?>
     <?php echo $analytic; ?>
     <?php } ?>

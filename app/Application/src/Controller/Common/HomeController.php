@@ -14,17 +14,6 @@ class HomeController extends Controller
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 
-        $this->document->addScript('vendor/jquery/dist/jquery.js');
-        $this->document->addScript('vendor/jquery-ui/jquery-ui.js', 'footer');
-        $this->document->addScript('vendor/bootstrap/dist/js/bootstrap.js', 'footer');
-        $this->document->addScript('vendor/jquery.placeholder/jquery.placeholder.js', 'footer');
-        $this->document->addScript('vendor/jquery.appear.bas2k/jquery.appear.js', 'footer');
-        $this->document->addScript('vendor/jquery-slimscroll/jquery.slimscroll.js', 'footer');
-       $this->document->addScript('vendor/jquery-scrollLock/jquery-scrollLock.js', 'footer');
-        $this->document->addScript('vendor/js-cookie/src/js.cookie.js', 'footer');
-        $this->document->addScript('vendor/vide/dist/jquery.vide.js', 'footer');
-
-        $this->document->addScript('js/app.js', 'footer');
 
         $data['name'] = $this->config->get('config_name');
 

@@ -21,8 +21,10 @@ class HeaderController extends Controller
             }
         }
 
-        $this->document->addStyle('vendor/bootstrap/dist/css/bootstrap.css');
-        $this->document->addStyle('vendor/fontawesome/css/font-awesome.css');
+        $this->document->addStyle('/vendor/fontawesome/css/font-awesome.css');
+        $this->document->addStyle('/vendor/bootstrap/dist/css/bootstrap.css');
+
+        $this->document->addScript('js/app.js');
 
         $data['base'] = '/';
         $data['meta_title'] = $this->document->getTitle();

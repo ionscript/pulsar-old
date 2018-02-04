@@ -34,7 +34,8 @@ class FooterController extends Controller
             $this->model('tool/online')->addOnline($ip, $this->user->getId(), $url, $referer);
         }
 
-        $data['text_copyright'] = sprintf($this->language->get('text_copyright'), $this->config->get('config_name'), date('Y', time()));
+        $data['text_copyright'] = sprintf($this->language->get('text_copyright'), $this->config->get('config_name'), date('Y'));
+
 
         $data['scripts'] = $this->document->getScripts('footer');
 
