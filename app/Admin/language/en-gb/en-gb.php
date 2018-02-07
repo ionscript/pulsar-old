@@ -55,6 +55,7 @@ $_['button_install']                = 'Install';
 $_['button_uninstall']              = 'Uninstall';
 $_['button_folder']                 = 'Folder';
 $_['button_parent']                 = 'Parent';
+$_['button_search']                 = 'Search';
 
 // Tab
 $_['tab_address']                   = 'Address';

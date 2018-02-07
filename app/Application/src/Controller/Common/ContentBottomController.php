@@ -52,7 +52,7 @@ class ContentBottomController extends Controller
                 $setting_info = $this->model('setting/module')->getModule($part[1]);
 
                 if ($setting_info && $setting_info['status']) {
-                    $output = $this->controller('extension/module/' . $part[0], [$setting_info]);
+                    $output = $this->controller('extension/module/' . $part[0], $setting_info, 'process');
 
                     if ($output) {
                         $data['modules'][] = $output;

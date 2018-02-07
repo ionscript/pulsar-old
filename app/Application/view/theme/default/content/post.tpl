@@ -15,7 +15,6 @@
             </div>
         </div>
         <!-- END Hero Content -->
-
         <!-- Story Content -->
         <div class="bg-white">
             <section class="content content-boxed">
@@ -32,7 +31,6 @@
             </section>
         </div>
         <!-- END Story Content -->
-
         <!-- More Stories -->
         <section class="content content-boxed">
             <!-- Section Content -->

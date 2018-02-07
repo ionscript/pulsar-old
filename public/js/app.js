@@ -141,6 +141,25 @@ var App = function () {
                 $btn.blur();
             }
         });
+
+
+        jQuery('[data-toggle="appear"]').each(function () {
+            var $window = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var $this = jQuery(this);
+            var $class = $this.data('class') ? $this.data('class') : 'animated fadeIn';
+            var $offset = $this.data('offset') ? $this.data('offset') : 0;
+            var $timeout = ($html.hasClass('ie9') || $window < 992) ? 0 : ($this.data('timeout') ? $this.data('timeout') : 0);
+
+            $this.appear(function () {
+                setTimeout(function () {
+                    $this
+                        .removeClass('visibility-hidden')
+                        .addClass($class);
+                }, $timeout);
+            }, {accY: $offset});
+        });
+
+
     };
 
     var main = function () {
@@ -295,4 +314,42 @@ var App = function () {
 // Initialize app when page loads
 jQuery(function () {
     App.init();
+});
+
+
+
+$(document).ready(function () {
+    // Language
+    $('#form-language .language-select').on('click', function (e) {
+        e.preventDefault();
+        $('#form-language input[name=\'code\']').val($(this).attr('name'));
+        $('#form-language').submit();
+    });
+
+    // List
+    $('#list-view').click(function () {
+        console.log('#list-view');
+        $('#posts').addClass('col-sm-8 col-sm-offset-2');
+        $('#posts > .post-grid').attr('class', 'post-list push');
+        $('#grid-view').removeClass('active');
+        $('#list-view').addClass('active');
+        localStorage.setItem('display', 'list');
+    });
+
+    // Grid
+    $('#grid-view').click(function () {
+        var cols = $('#column-right, #column-left').length;
+        $('#posts').removeClass('col-sm-8 col-sm-offset-2');
+        $('#posts > .post-list').attr('class', 'post-grid col-md-4');
+        $('#list-view').removeClass('active');
+        $('#grid-view').addClass('active');
+        localStorage.setItem('display', 'grid');
+    });
+
+    // List/Grid Storage
+    if (localStorage.getItem('display') === 'list') {
+        $('#list-view').trigger('click').addClass('active');
+    } else {
+        $('#grid-view').trigger('click').addClass('active');
+    }
 });

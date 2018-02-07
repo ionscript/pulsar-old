@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
     <link rel="shortcut icon" href="img/favicons/favicon.png">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" id="css-main" href="css/app.css">
     <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
@@ -20,6 +19,10 @@
     <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="vendor/jquery-slimscroll/jquery.slimscroll.js"></script>
     <script type="text/javascript" src="vendor/jquery-scrollLock/jquery-scrollLock.js"></script>
+    <script type="text/javascript" src="vendor/select2/dist/js/select2.js"></script>
+    <script type="text/javascript" src="vendor/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/summernote/dist/summernote.js"></script>
     <script type="text/javascript" src="js/admin.app.js"></script>
 </head>
 <body>

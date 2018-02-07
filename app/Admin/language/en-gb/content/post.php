@@ -3,7 +3,7 @@
 $_['heading_title']          = 'Posts';
 
 // Text
-$_['text_success']           = 'Success: You have modified products!';
+$_['text_success']           = 'Success: You have modified posts!';
 $_['text_list']              = 'Post List';
 $_['text_add']               = 'Add Post';
 $_['text_edit']              = 'Edit Post';

@@ -56,7 +56,7 @@ class PageController extends Controller
         $this->language->load('content/page');
 
         if ($this->request->hasPost('selected') && $this->validateDelete()) {
-            foreach ($this->request->hasPost('selected') as $id) {
+            foreach ($this->request->getPost('selected') as $id) {
                 $this->model('content/page')->deletePage($id);
             }
 
@@ -73,6 +73,12 @@ class PageController extends Controller
             $data['selected'] = (array)$this->request->getPost('selected');
         } else {
             $data['selected'] = [];
+        }
+
+        if ($this->error) {
+            $data['error'] = $this->error;
+        } else {
+            $data['error'] = '';
         }
 
         if ($this->session->has('success')) {

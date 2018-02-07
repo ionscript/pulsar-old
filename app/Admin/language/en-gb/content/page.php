@@ -3,7 +3,7 @@
 $_['heading_title']          = 'Pages';
 
 // Text
-$_['text_success']           = 'Success: You have modified products!';
+$_['text_success']           = 'Success: You have modified pages!';
 $_['text_list']              = 'Page List';
 $_['text_total']             = 'Total Pages';
 $_['text_add']               = 'Add Page';
@@ -31,7 +31,7 @@ $_['entry_status']           = 'Published';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';
-$_['error_permission']       = 'Warning: You do not have permission to modify products!';
+$_['error_permission']       = 'Warning: You do not have permission to modify pages!';
 $_['error_name']             = 'Page Name must be greater than 1 and less than 255 characters!';
 $_['error_meta_title']       = 'Meta Title must be greater than 1 and less than 255 characters!';
 $_['error_keyword']          = 'SEO URL already in use!';

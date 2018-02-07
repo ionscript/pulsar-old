@@ -6,7 +6,7 @@ use Ions\Mvc\Controller;
 
 class SlideshowController extends Controller
 {
-    public function indexAction($setting)
+    public function processAction($setting)
     {
         static $module = 0;
 

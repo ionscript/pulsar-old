@@ -25,7 +25,7 @@ class HomeController extends Controller
         $data['content_top'] = $this->controller('content_top');
         $data['content_bottom'] = $this->controller('content_bottom');
         $data['header'] = $this->controller('header');
-        $data['footer'] = $this->controller('no-footer');
+        $data['footer'] = $this->controller('footer');
         // END Layout
 
         $this->response->setContent($this->view('common/home', $data));

@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
         if ($this->request->hasPost('selected') && $this->validateDelete()) {
             foreach ($this->request->getPost('selected') as $id) {
-                $this->model('content/category')->deletePost($id);
+                $this->model('content/category')->deleteCategory($id);
             }
 
             $this->session->set('success', $this->language->get('text_success'));

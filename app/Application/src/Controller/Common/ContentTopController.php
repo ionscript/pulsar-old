@@ -20,7 +20,7 @@ class ContentTopController extends Controller
         if ($this->request->hasQuery('route')) {
             $route = (string)$this->request->getQuery('route');
         } else {
-            $route = 'common/home';
+            $route = '/';
         }
 
         $layout_id = 0;
@@ -52,7 +52,7 @@ class ContentTopController extends Controller
                 $setting_info = $this->model('setting/module')->getModule($part[1]);
 
                 if ($setting_info && $setting_info['status']) {
-                    $output = $this->controller('extension/module/' . $part[0], [$setting_info]);
+                    $output = $this->controller('extension/module/' . $part[0], $setting_info, 'process');
 
                     if ($output) {
                         $data['modules'][] = $output;

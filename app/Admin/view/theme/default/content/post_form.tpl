@@ -276,11 +276,11 @@
                 success: function (json) {
                     json.unshift({
                         category_id: 0,
-                        name: '<?php echo $text_none; ?>'
+                        path: '<?php echo $text_none; ?>'
                     });
                     response($.map(json, function (item) {
                         return {
-                            label: item['name'],
+                            label: item['path'],
                             value: item['category_id']
                         }
                     }));

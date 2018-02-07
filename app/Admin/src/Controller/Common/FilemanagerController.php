@@ -17,7 +17,6 @@ class FilemanagerController extends Controller
             $filter_name = null;
         }
 
-        // Make sure we have the correct directory
         if ($this->request->hasQuery('directory')) {
             $directory = rtrim($this->image->getDirectory() . '/data/' . str_replace('*', '', $this->request->getQuery('directory')), '/');
         } else {
@@ -34,8 +33,6 @@ class FilemanagerController extends Controller
         $files = [];
 
         $data['images'] = [];
-
-        //if (substr(str_replace('\\', '/', realpath($directory . '/' . $filter_name)), 0, strlen($this->image->getDirectory() . '/data')) == $this->image->getDirectory() . '/data') {
 
         $directory = realpath($directory . '/' . $filter_name);
 
@@ -55,29 +52,20 @@ class FilemanagerController extends Controller
             }
         }
 
-        // Merge directories and files
         $images = array_merge($directories, $files);
-
-        // Get total number of files and directories
         $image_total = count($images);
-
-        // Split the array based on current page number and max number of items per page of 10
         $images = array_splice($images, ($page - 1) * 16, 16);
 
         foreach ($images as $image) {
             $name = str_split(basename($image), 14);
-
             if (is_dir($image)) {
                 $url = '';
-
                 if ($this->request->hasQuery('target')) {
                     $url .= '&target=' . $this->request->getQuery('target');
                 }
-
                 if ($this->request->hasQuery('thumb')) {
                     $url .= '&thumb=' . $this->request->getQuery('thumb');
                 }
-
                 $data['images'][] = [
                     'thumb' => '',
                     'name' => implode(' ', $name),
@@ -104,13 +92,6 @@ class FilemanagerController extends Controller
         $data['entry_search'] = $this->language->get('entry_search');
         $data['entry_folder'] = $this->language->get('entry_folder');
 
-        $data['button_parent'] = $this->language->get('button_parent');
-        $data['button_refresh'] = $this->language->get('button_refresh');
-        $data['button_upload'] = $this->language->get('button_upload');
-        $data['button_folder'] = $this->language->get('button_folder');
-        $data['button_delete'] = $this->language->get('button_delete');
-        $data['button_search'] = $this->language->get('button_search');
-
         $data['token'] = $this->session->get('token');
 
         if ($this->request->hasQuery('directory')) {
@@ -125,14 +106,12 @@ class FilemanagerController extends Controller
             $data['filter_name'] = '';
         }
 
-        // Return the target ID for the file manager to set the value
         if ($this->request->hasQuery('target')) {
             $data['target'] = $this->request->getQuery('target');
         } else {
             $data['target'] = '';
         }
 
-        // Return the thumbnail for the file manager to show a thumbnail
         if ($this->request->hasQuery('thumb')) {
             $data['thumb'] = $this->request->getQuery('thumb');
         } else {
@@ -209,45 +188,39 @@ class FilemanagerController extends Controller
 
         $json = [];
 
-        // Check admin has permission
-        if (!$this->user->hasPermission('modify', 'admin/common/filemanager')) {
+        if (!$this->user->hasPermission('modify', 'filemanager')) {
             $json['error'] = $this->language->get('error_permission');
         }
 
-        // Make sure we have the correct directory
         if ($this->request->hasQuery('directory')) {
             $directory = rtrim($this->image->getDirectory() . '/data/' . $this->request->getQuery('directory'), '/');
         } else {
             $directory = $this->image->getDirectory() . '/data';
         }
 
-        // Check its a directory
         if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
             $json['error'] = $this->language->get('error_directory');
         }
 
         if (!$json) {
-            // Check if multiple files are uploaded or just one
             $files = [];
 
             if (!empty($this->request->getFiles()['file']['name']) && is_array($this->request->getFiles()['file']['name'])) {
                 foreach (array_keys($this->request->getFiles()['file']['name']) as $key) {
-                    $files[] = array(
+                    $files[] = [
                         'name' => $this->request->getFiles()['file']['name'][$key],
                         'type' => $this->request->getFiles()['file']['type'][$key],
                         'tmp_name' => $this->request->getFiles()['file']['tmp_name'][$key],
                         'error' => $this->request->getFiles()['file']['error'][$key],
                         'size' => $this->request->getFiles()['file']['size'][$key]
-                    );
+                    ];
                 }
             }
 
             foreach ($files as $file) {
                 if (is_file($file['tmp_name'])) {
-                    // Sanitize the filename
                     $filename = basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8'));
 
-                    // Validate the filename length
                     if ((strlen($filename) < 3) || (strlen($filename) > 255)) {
                         $json['error'] = $this->language->get('error_filename');
                     }
@@ -265,13 +238,13 @@ class FilemanagerController extends Controller
                     }
 
                     // Allowed file mime types
-                    $allowed = array(
+                    $allowed = [
                         'image/jpeg',
                         'image/pjpeg',
                         'image/png',
                         'image/x-png',
                         'image/gif'
-                    );
+                    ];
 
                     if (!in_array($file['type'], $allowed)) {
                         $json['error'] = $this->language->get('error_filetype');
@@ -304,33 +277,27 @@ class FilemanagerController extends Controller
 
         $json = [];
 
-        // Check admin has permission
-        if (!$this->user->hasPermission('modify', 'admin/common/filemanager')) {
+        if (!$this->user->hasPermission('modify', 'filemanager')) {
             $json['error'] = $this->language->get('error_permission');
         }
 
-        // Make sure we have the correct directory
         if ($this->request->hasQuery('directory')) {
             $directory = rtrim($this->image->getDirectory() . '/data/' . $this->request->getQuery('directory'), '/');
         } else {
             $directory = $this->image->getDirectory() . '/data';
         }
 
-        // Check its a directory
         if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
             $json['error'] = $this->language->get('error_directory');
         }
 
         if ($this->request->isPost()) {
-            // Sanitize the folder name
             $folder = basename(html_entity_decode($this->request->getPost('folder'), ENT_QUOTES, 'UTF-8'));
 
-            // Validate the filename length
             if ((strlen($folder) < 3) || (strlen($folder) > 128)) {
                 $json['error'] = $this->language->get('error_folder');
             }
 
-            // Check if directory already exists or not
             if (is_dir($directory . '/' . $folder)) {
                 $json['error'] = $this->language->get('error_exists');
             }
@@ -354,8 +321,7 @@ class FilemanagerController extends Controller
 
         $json = [];
 
-        // Check admin has permission
-        if (!$this->user->hasPermission('modify', 'admin/common/filemanager')) {
+        if (!$this->user->hasPermission('modify', 'filemanager')) {
             $json['error'] = $this->language->get('error_permission');
         }
 
@@ -365,9 +331,7 @@ class FilemanagerController extends Controller
             $paths = [];
         }
 
-        // Loop through each path to run validations
         foreach ($paths as $path) {
-            // Check path exsists
             if ($path == $this->image->getDirectory() . '/data' || substr(str_replace('\\', '/', realpath($this->image->getDirectory() . $path)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
                 $json['error'] = $this->language->get('error_delete');
 
@@ -376,45 +340,32 @@ class FilemanagerController extends Controller
         }
 
         if (!$json) {
-            // Loop through each path
             foreach ($paths as $path) {
                 $path = rtrim($this->image->getDirectory() . $path, '/');
 
-                // If path is just a file delete it
                 if (is_file($path)) {
                     unlink($path);
-
-                    // If path is a directory beging deleting each file and sub folder
                 } elseif (is_dir($path)) {
-                    $files = array();
+                    $files = [];
 
-                    // Make path into an array
-                    $path = array($path . '*');
+                    $path = [$path . '*'];
 
-                    // While the path array is still populated keep looping through
                     while (count($path) != 0) {
                         $next = array_shift($path);
 
                         foreach (glob($next) as $file) {
-                            // If directory add to path array
                             if (is_dir($file)) {
                                 $path[] = $file . '/*';
                             }
-
-                            // Add the file to the files to be deleted array
                             $files[] = $file;
                         }
                     }
 
-                    // Reverse sort the file array
                     rsort($files);
 
                     foreach ($files as $file) {
-                        // If file just delete
                         if (is_file($file)) {
                             unlink($file);
-
-                            // If directory use the remove directory function
                         } elseif (is_dir($file)) {
                             rmdir($file);
                         }
