@@ -17,7 +17,7 @@ class SidebarController extends Controller
         // Menu
         $data['menus'][] = [
             'id' => 'menu-dashboard',
-            'icon' => 'icon-speedometer',
+            'icon' => 'fa fa-speedometer',
             'name' => $this->language->get('text_dashboard'),
             'href' => $this->url->link('dashboard', 'token=' . $token),
             'children' => []
@@ -44,7 +44,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-pages',
-            'icon' => 'icon-grid',
+            'icon' => 'fa fa-grid',
             'name' => $this->language->get('text_pages'),
             'href' => '',
             'children' => $pages
@@ -71,7 +71,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-posts',
-            'icon' => 'icon-pin',
+            'icon' => 'fa fa-pin',
             'name' => $this->language->get('text_posts'),
             'href' => '',
             'children' => $posts
@@ -98,7 +98,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-design',
-            'icon' => 'icon-layers',
+            'icon' => 'fa fa-layers',
             'name' => $this->language->get('text_design'),
             'href' => '',
             'children' => $design
@@ -130,7 +130,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-extension',
-            'icon' => 'icon-puzzle',
+            'icon' => 'fa fa-puzzle',
             'name' => $this->language->get('text_extension'),
             'href' => '',
             'children' => $extension
@@ -147,7 +147,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-localisation',
-            'icon' => 'icon-flag',
+            'icon' => 'fa fa-flag',
             'name' => $this->language->get('text_localisation'),
             'href' => '',
             'children' => $localisation
@@ -174,7 +174,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-system',
-            'icon' => 'icon-settings',
+            'icon' => 'fa fa-settings',
             'name' => $this->language->get('text_system'),
             'href' => '',
             'children' => $system
@@ -196,7 +196,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-user',
-            'icon' => 'icon-user',
+            'icon' => 'fa fa-user',
             'name' => $this->language->get('text_user'),
             'href' => '',
             'children' => $user
@@ -214,7 +214,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-report',
-            'icon' => 'icon-chart',
+            'icon' => 'fa fa-chart',
             'name' => $this->language->get('text_report'),
             'href' => '',
             'children' => $report

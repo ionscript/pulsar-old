@@ -138,8 +138,6 @@ class PostController extends Controller
         $token = $this->session->get('token');
         $data['categories'] = [];
 
-
-
         if ($this->request->hasPost('related')) {
             $posts = $this->request->getPost('related');
         } elseif ($this->request->hasQuery('id')) {

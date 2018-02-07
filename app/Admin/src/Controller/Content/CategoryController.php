@@ -145,6 +145,7 @@ class CategoryController extends Controller
         } else {
 
             $data = $this->model('content/category')->getSchema('category');
+            $data['path'] = '';
             $description = $this->model('content/category')->getSchema('category_description');
 
             $languages = $this->model('localisation/language')->getLanguages();

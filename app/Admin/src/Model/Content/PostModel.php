@@ -11,6 +11,10 @@ class PostModel extends Model
 
         $id = $this->db->getLastId();
 
+        if (isset($data['image'])) {
+            $this->db->execute("UPDATE post SET image = " . $this->db->escape($data['image']) . " WHERE id = '" . (int)$id . "'");
+        }
+
         foreach ($data['description'] as $language_id => $value) {
             $this->db->execute("INSERT INTO post_description SET post_id = '" . (int)$id . "', language_id = '" . (int)$language_id . "', `name` = " . $this->db->escape($value['name']) . ", description = " . $this->db->escape($value['description']) . ", tag = " . $this->db->escape($value['tag']) . ", meta_title = " . $this->db->escape($value['meta_title']) . ", meta_description = " . $this->db->escape($value['meta_description']) . ", meta_keyword = " . $this->db->escape($value['meta_keyword']));
         }
