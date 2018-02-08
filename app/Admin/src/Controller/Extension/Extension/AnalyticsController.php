@@ -26,7 +26,7 @@ class AnalyticsController extends Controller
             $this->model('user/group')->addPermission($this->user->getGroupId(), 'modify', 'admin/extension/analytics/' . $this->request->getQuery('extension'));
 
             // Call install method if it exsits
-            $this->controller('extension/analytics/' . $this->request->getQuery('extension') . '/install');
+            $this->controller('extension/analytics/' . $this->request->getQuery('extension'), [], 'install');
 
             $this->session->set('success', $this->language->get('text_success'));
             $this->response->redirect($this->url->link('extension/extension/analytics', 'token=' . $this->session->get('token')));
@@ -43,7 +43,7 @@ class AnalyticsController extends Controller
             $this->model('setting/extension')->uninstall('analytics', $this->request->getQuery('extension'));
 
             // Call uninstall method if it exsits
-            $this->controller('extension/analytics/' . $this->request->getQuery('extension') . '/uninstall');
+            $this->controller('extension/analytics/' . $this->request->getQuery('extension'), [], 'uninstall');
 
             $this->session->set('success', $this->language->get('text_success'));
             $this->response->redirect($this->url->link('extension/extension/analytics', 'token=' . $this->session->get('token')));

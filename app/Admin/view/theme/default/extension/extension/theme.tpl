@@ -82,7 +82,7 @@
                                                 <a href="<?php echo $extension['install']; ?>"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_install; ?>"
-                                                   class="btn  btn-sm btn-success swal">
+                                                   class="btn  btn-sm btn-success">
                                                     <i class="fa fa-plus-circle"></i>
                                                 </a>
                                             </div>
@@ -104,6 +104,3 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-<script>
-    App.vendor('alert');
-</script>

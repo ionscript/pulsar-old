@@ -147,6 +147,5 @@
 <!-- END Main Container -->
 <?php echo $footer; ?>
 <script>
-    App.vendor('alert');
-    App.vendor('table');
+    App.vendors(['alert', 'table']);
 </script>

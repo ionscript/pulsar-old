@@ -70,7 +70,7 @@
 
                                         <?php if ($extension['module']) { ?>
                                             <div class="btn-group">
-                                                <a href="<?php echo $extension['edit']; ?>"
+                                                <a href="<?php echo $extension['add']; ?>"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_add; ?>"
                                                    class="btn btn-sm btn-success">
@@ -129,10 +129,9 @@
                                             </div>
                                             <div class="btn-group">
                                                 <a href="<?php echo $module['delete']; ?>"
-                                                   onclick="return false"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_delete; ?>"
-                                                   class="btn btn-sm btn-default swal">
+                                                   class="btn btn-sm btn-default">
                                                     <i class="fa fa-close"></i>
                                                 </a>
                                             </div>
@@ -156,6 +155,4 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-<script>
-    App.vendor('alert');
-</script>
+

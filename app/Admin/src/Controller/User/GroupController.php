@@ -25,7 +25,7 @@ class GroupController extends Controller
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->request->isPost() && $this->validateForm()) {
-            $this->model('user/group')->addUserGroup($this->request->post);
+            $this->model('user/group')->addUserGroup($this->request->getPost());
 
             $this->session->set('success', $this->language->get('text_success'));
 
@@ -151,12 +151,18 @@ class GroupController extends Controller
 
         $data['languages'] = $this->model('localisation/language')->getLanguages();
 
+
         if ($this->request->hasPost('description')) {
             $data['description'] = $this->request->getPost('description');
         } elseif ($this->request->hasQuery('id')) {
             $data['description'] = $this->model('user/group')->getUserGroupDescriptions($this->request->getQuery('id'));
         } else {
-            $data['description'] = [];
+
+            $description = $this->model('user/group')->getSchema('user_group_description');
+
+            foreach ($data['languages'] as $language) {
+                $data['description'][$language['id']] = $description;
+            }
         }
 
         if ($this->request->hasPost('approval')) {
@@ -217,16 +223,10 @@ class GroupController extends Controller
         foreach ((array)$this->request->getPost('description') as $language_id => $value) {
             $len = strlen($value['name']);
 
-            if ($len < 3 || $len > 32) {
+            if ($len < 3 || $len > 64) {
                 $this->error = $this->language->get('error_name');
             }
         }
-
-//        $len = strlen($this->request->getPost('name'));
-//
-//        if ($len < 3 || $len > 64) {
-//            $this->error = $this->language->get('error_name');
-//        }
 
         return !$this->error;
     }

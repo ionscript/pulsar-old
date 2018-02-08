@@ -79,4 +79,12 @@ class OnlineController extends Controller
 		
 		$this->response->setContent($this->view('report/online', $data));
 	}
+
+    public function installAction()
+    {
+    }
+
+    public function uninstallAction()
+    {
+    }
 }

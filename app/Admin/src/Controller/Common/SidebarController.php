@@ -17,7 +17,7 @@ class SidebarController extends Controller
         // Menu
         $data['menus'][] = [
             'id' => 'menu-dashboard',
-            'icon' => 'fa fa-speedometer',
+            'icon' => 'fa fa-dashboard',
             'name' => $this->language->get('text_dashboard'),
             'href' => $this->url->link('dashboard', 'token=' . $token),
             'children' => []
@@ -44,7 +44,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-pages',
-            'icon' => 'fa fa-grid',
+            'icon' => 'fa fa-files-o',
             'name' => $this->language->get('text_pages'),
             'href' => '',
             'children' => $pages
@@ -71,7 +71,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-posts',
-            'icon' => 'fa fa-pin',
+            'icon' => 'fa fa-cubes',
             'name' => $this->language->get('text_posts'),
             'href' => '',
             'children' => $posts
@@ -98,7 +98,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-design',
-            'icon' => 'fa fa-layers',
+            'icon' => 'fa fa-desktop',
             'name' => $this->language->get('text_design'),
             'href' => '',
             'children' => $design
@@ -130,7 +130,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-extension',
-            'icon' => 'fa fa-puzzle',
+            'icon' => 'fa fa-puzzle-piece',
             'name' => $this->language->get('text_extension'),
             'href' => '',
             'children' => $extension
@@ -174,7 +174,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-system',
-            'icon' => 'fa fa-settings',
+            'icon' => 'fa fa-gear',
             'name' => $this->language->get('text_system'),
             'href' => '',
             'children' => $system
@@ -202,7 +202,6 @@ class SidebarController extends Controller
             'children' => $user
         ];
 
-
         // Report
         $report = [
             [
@@ -214,7 +213,7 @@ class SidebarController extends Controller
 
         $data['menus'][] = [
             'id' => 'menu-report',
-            'icon' => 'fa fa-chart',
+            'icon' => 'fa fa-bar-chart',
             'name' => $this->language->get('text_report'),
             'href' => '',
             'children' => $report

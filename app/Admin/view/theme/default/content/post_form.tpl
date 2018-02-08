@@ -308,7 +308,5 @@
     });
 </script>
 <script type="text/javascript">
-    App.vendor('summernote');
-    App.vendor('datepicker');
-    App.vendor('tags');
+    App.vendors(['summernote', 'tags', 'datepicker']);
 </script>

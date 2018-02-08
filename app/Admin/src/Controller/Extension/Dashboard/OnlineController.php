@@ -110,4 +110,12 @@ class OnlineController extends Controller
 
         return $this->view('extension/dashboard/online_info', $data);
     }
+
+    public function installAction()
+    {
+    }
+
+    public function uninstallAction()
+    {
+    }
 }

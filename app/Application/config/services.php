@@ -14,5 +14,6 @@ return [
     'search' => \Application\Common\SearchController::class,
     'lang' => \Application\Common\LanguageController::class,
     'extension/analytics/google' => \Application\Extension\Analytics\GoogleController::class,
-    'extension/module/banner' => \Application\Extension\Module\SlideshowController::class,
+    //'extension/module/banner' => \Application\Extension\Module\BannerController::class,
+    'extension/module/slideshow' => \Application\Extension\Module\SlideshowController::class,
 ];

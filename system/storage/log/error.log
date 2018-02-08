@@ -1,0 +1,15 @@
+2018-02-08T14:58:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:58:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:58:27+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:58:27+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:20+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:20+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:20+02:00 NOTICE (5) Undefined variable: text_powered in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\footer.tpl on line 39
+2018-02-08T14:59:25+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T14:59:25+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T15:02:23+02:00 ERR (3) Missing route matches; unsure how to retrieve action in C:\wamp\www\pulsar-public\system\vendor\ionscript\ions-mvc\src\Controller.php on line 46
+2018-02-08T15:02:28+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T15:02:28+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
+2018-02-08T15:03:21+02:00 NOTICE (5) Undefined index: add in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\extension\extension\module.tpl on line 73

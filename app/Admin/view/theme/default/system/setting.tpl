@@ -37,7 +37,7 @@
         </div>
         <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post" action="<?php echo $action; ?>">
             <div class="block">
-                <ul class="nav nav-tabs nav-justified" data-toggle="tabs">
+                <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
                     <li class="active"><a href="#tabs-general"><i class="fa fa-home"></i> <?php echo $tab_general; ?></a></li>
                     <li><a href="#tabs-option"><i class="fa fa-cog"></i> <?php echo $tab_option; ?></a></li>
                     <li><a href="#tabs-user"><i class="fa fa-user"></i> <?php echo $tab_user; ?></a></li>

@@ -25,7 +25,7 @@
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="push-30-t push-50 animated fadeIn">
                     <div class="text-center">
-                        <i class="fa fa-2x fa-diamond text-primary"></i>
+                        <i class="fa fa-2x fa-bullseye text-primary"></i>
                         <p class="text-muted push-15-t"><?php echo $text_login; ?></p>
                     </div>
                     <?php if ($error) { ?>
@@ -51,6 +51,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div class="form-group push-30-t">
                             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                                 <button class="btn btn-sm btn-block btn-primary" type="submit"><?php echo $button_login; ?></button>

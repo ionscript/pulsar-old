@@ -58,7 +58,7 @@ class LanguageController extends Controller
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->validateDelete()) {
-            foreach ($this->request->post['selected'] as $id) {
+            foreach ($this->request->getPost('selected') as $id) {
                 $this->model('localisation/language')->deleteLanguage($id);
             }
 
@@ -151,26 +151,26 @@ class LanguageController extends Controller
             $this->error = $this->language->get('error_permission');
         }
 
-        if ((strlen($this->request->post['name']) < 3) || (strlen($this->request->post['name']) > 32)) {
+        if ((strlen($this->request->getPost('name')) < 3) || (strlen($this->request->getPost('name')) > 32)) {
             $this->error = $this->language->get('error_name');
         }
 
-        if (strlen($this->request->post['code']) < 2) {
+        if (strlen($this->request->getPost('code')) < 2) {
             $this->error = $this->language->get('error_code');
         }
 
-        if (!$this->request->post['locale']) {
+        if (!$this->request->hasPost('locale')) {
             $this->error = $this->language->get('error_locale');
         }
 
-        $language_info = $this->model('localisation/language')->getLanguageByCode($this->request->post['code']);
+        $language_info = $this->model('localisation/language')->getLanguageByCode($this->request->getPost('code'));
 
-        if (!isset($this->request->get['language_id'])) {
+        if (!$this->request->hasQuery('language_id')) {
             if ($language_info) {
                 $this->error = $this->language->get('error_exists');
             }
         } else {
-            if ($language_info && ($this->request->get['language_id'] != $language_info['language_id'])) {
+            if ($language_info && ($this->request->getQuery('language_id') != $language_info['language_id'])) {
                 $this->error = $this->language->get('error_exists');
             }
         }
@@ -184,7 +184,7 @@ class LanguageController extends Controller
             $this->error = $this->language->get('error_permission');
         }
 
-        foreach ($this->request->post['selected'] as $language_id) {
+        foreach ($this->request->getPost('selected') as $language_id) {
             $language_info = $this->model('localisation/language')->getLanguage($language_id);
 
             if ($language_info) {

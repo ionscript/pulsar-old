@@ -76,7 +76,7 @@
                                                 <a href="<?php echo $extension['uninstall']; ?>"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_uninstall; ?>"
-                                                   class="btn btn-sm btn-danger swal">
+                                                   class="btn btn-sm btn-danger">
                                                     <i class="fa fa-minus-circle"></i>
                                                 </a>
                                             </div>
@@ -107,6 +107,4 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-<script>
-    App.vendor('alert');
-</script>
+

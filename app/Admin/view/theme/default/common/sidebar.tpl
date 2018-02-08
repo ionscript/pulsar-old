@@ -15,7 +15,7 @@
                 <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
                 <div class="btn-group pull-right">
                     <button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">
-                        <i class="icon-drop"></i>
+                        <i class="fa fa-tint"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right font-s13 sidebar-mini-hide">
                         <li>
@@ -61,9 +61,9 @@
                         </li>
                     </ul>
                 </div>
-                <a class="h5 text-white" href="<?php echo $dashboard; ?>">
-                    <i class="fa fa-diamond text-primary"></i>
-                    <span class="h4 font-w600 sidebar-mini-hide">&nbsp; Pulsar</span>
+                <a class="h4 text-white" href="<?php echo $dashboard; ?>">
+                    <i class="fa fa-bullseye text-primary"></i>
+                    <span class="h4 font-w600 sidebar-mini-hide">Pulsar</span>
                 </a>
             </div>
             <!-- END Side Header -->

@@ -78,4 +78,12 @@ class GoogleController extends Controller
 
         return !$this->error;
     }
+
+    public function installAction()
+    {
+    }
+
+    public function uninstallAction()
+    {
+    }
 }

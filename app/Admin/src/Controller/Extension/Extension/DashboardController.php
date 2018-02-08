@@ -26,7 +26,7 @@ class DashboardController extends Controller
             $this->model('user/group')->addPermission($this->user->getGroupId(), 'modify', 'admin/extension/dashboard/' . $this->request->getQuery('extension'));
 
             // Call install method if it exsits
-            $this->controller('extension/dashboard/' . $this->request->getQuery('extension') . '/install');
+            $this->controller('extension/dashboard/' . $this->request->getQuery('extension'), [], 'install');
 
             $this->session->set('success', $this->language->get('text_success'));
             $this->response->redirect($this->url->link('extension/extension/dashboard', 'token=' . $this->session->get('token')));
@@ -44,7 +44,7 @@ class DashboardController extends Controller
             $this->model('setting/extension')->uninstall('dashboard', $this->request->getQuery('extension'));
 
             // Call uninstall method if it exsits
-            $this->controller('extension/dashboard/' . $this->request->getQuery('extension') . '/uninstall');
+            $this->controller('extension/dashboard/' . $this->request->getQuery('extension'), [], 'uninstall');
 
             $this->session->set('success', $this->language->get('text_success'));
             $this->response->redirect($this->url->link('extension/extension/dashboard', 'token=' . $this->session->get('token')));
@@ -73,7 +73,7 @@ class DashboardController extends Controller
 
         $data['breadcrumbs'][] = [
             'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('common/dashboard', 'token=' . $this->session->get('token'))
+            'href' => $this->url->link('dashboard', 'token=' . $this->session->get('token'))
         ];
 
         $data['breadcrumbs'][] = [

@@ -241,6 +241,5 @@
     });
 </script>
 <script type="text/javascript">
-    App.vendor('summernote');
-    App.vendor('tags');
+    App.vendors(['summernote', 'tags']);
 </script>
