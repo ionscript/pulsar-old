@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" class="form-horizontal js-validation-material"
+        <form id="form" class="form-horizontal validation"
               action="<?php echo $action; ?>" method="post">
             <div class="block">
                 <div class="block-header bg-gray-lighter">

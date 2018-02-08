@@ -55,9 +55,9 @@
                                 <?php foreach ($languages as $language) { ?>
                                     <div class="tab-pane fade fade-right" id="language<?php echo $language['id']; ?>">
                                         <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 push-30-t push-30">
-                                            <div class="form-group required">
+                                            <div class="form-group">
                                                 <div class="col-xs-12">
-                                                    <label class="control-label" for="name<?php echo $language['id']; ?>"><?php echo $entry_name; ?></label>
+                                                    <label for="name<?php echo $language['id']; ?>"><?php echo $entry_name; ?> <span class="text-danger">*</span></label>
                                                     <div class="form-material form-material-primary">
                                                         <input id="name<?php echo $language['id']; ?>" type="text" class="form-control" name="description[<?php echo $language['id']; ?>][name]" value="<?php echo $description[$language['id']]['name']; ?>" minlength="3" required/>
                                                     </div>
@@ -74,9 +74,9 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <div class="form-group required">
+                                            <div class="form-group">
                                                 <div class="col-xs-12">
-                                                    <label class="control-label" for="meta-title<?php echo $language['id']; ?>"><?php echo $entry_meta_title; ?></label>
+                                                    <label for="meta-title<?php echo $language['id']; ?>"><?php echo $entry_meta_title; ?> <span class="text-danger">*</span></label>
                                                     <div class="form-material form-material-primary">
                                                         <input id="meta-title<?php echo $language['id']; ?>" type="text" class="form-control" name="description[<?php echo $language['id']; ?>][meta_title]" minlength="3" value="<?php echo $description[$language['id']]['meta_title']; ?>" required>
                                                     </div>
@@ -309,4 +309,6 @@
 </script>
 <script type="text/javascript">
     App.vendor('summernote');
+    App.vendor('datepicker');
+    App.vendor('tags');
 </script>

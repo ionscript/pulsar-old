@@ -35,7 +35,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post" action="<?php echo $action; ?>">
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post" action="<?php echo $action; ?>">
             <div class="block">
                 <ul class="nav nav-tabs nav-justified" data-toggle="tabs">
                     <li class="active"><a href="#tabs-general"><i class="fa fa-home"></i> <?php echo $tab_general; ?></a></li>
@@ -52,55 +52,52 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="config_name"
-                                               value="<?php echo $config_name; ?>" minlength="3" maxlength="255"
+                                        <input class="form-control"
+                                               type="text"
+                                               name="config_name"
+                                               value="<?php echo $config_name; ?>" minlength="3"
                                                data-always-show="true"
                                                required/>
                                         <label><?php echo $entry_name; ?> <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">255 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="email" name="config_email"
-                                               value="<?php echo $config_email; ?>" minlength="3" maxlength="255"
-                                               data-always-show="true"
+                                        <input class="form-control"
+                                               type="email"
+                                               name="config_email"
+                                               value="<?php echo $config_email; ?>"
+                                               minlength="3"
                                                required/>
                                         <label><?php echo $entry_email; ?> <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">255 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="config_meta_title"
+                                        <input class="form-control" type="text" name="config_meta_title"
                                                minlength="3"
-                                               maxlength="255" data-always-show="true"
                                                value="<?php echo $config_meta_title; ?>"
                                                required>
                                         <label><?php echo $entry_meta_title; ?> <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">255 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                    <textarea class="js-maxlength form-control" name="config_meta_description" rows="5"
-                                              maxlength="255"
-                                              data-always-show="true"><?php echo $config_meta_description; ?></textarea>
+                                    <textarea class="form-control" name="config_meta_description" rows="5"><?php echo $config_meta_description; ?></textarea>
                                         <label><?php echo $entry_meta_description; ?></label>
-                                        <div class="help-block text-right">255 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-tags-input form-control" type="text" name="config_meta_keyword"
+                                        <input class="tags-input form-control" type="text" name="config_meta_keyword"
                                                value="<?php echo $config_meta_keyword; ?>">
                                         <label><?php echo $entry_meta_keyword; ?></label>
                                     </div>
@@ -123,19 +120,17 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material form-material-primary">
-                                                <input class="js-maxlength form-control" type="number" name="config_limit"
-                                                       value="<?php echo $config_limit; ?>" minlength="1" maxlength="3"
-                                                       data-always-show="true"
+                                                <input class="form-control" type="number" name="config_limit"
+                                                       value="<?php echo $config_limit; ?>" minlength="1"
                                                        required/>
                                                 <label><?php echo $entry_limit; ?> <span class="text-danger">*</span></label>
-                                                <div class="help-block text-right">3 Number Max</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material">
-                                                <select class="js-select2 form-control" name="config_language"
+                                                <select class="select2 form-control" name="config_language"
                                                         style="width: 100%;"
                                                         data-placeholder="Choose one.." required>
                                                     <option></option>
@@ -155,7 +150,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material">
-                                                <select class="js-select2 form-control" name="config_admin_language"
+                                                <select class="select2 form-control" name="config_admin_language"
                                                         style="width: 100%;"
                                                         data-placeholder="Choose one.." required>
                                                     <option></option>
@@ -175,9 +170,8 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material form-material-primary">
-                                                <input class="js-maxlength form-control" type="text" name="config_theme" maxlength="64" data-always-show="true" value="<?php echo $config_theme; ?>">
+                                                <input class="form-control" type="text" name="config_theme" value="<?php echo $config_theme; ?>">
                                                 <label><?php echo $entry_theme; ?></label>
-                                                <div class="help-block text-right">64 Character Max</div>
                                             </div>
                                         </div>
                                     </div>
@@ -191,8 +185,6 @@
                         </div>
                     </div>
                     <!-- End Options Tab -->
-
-
                     <!-- Start Users Tab -->
                     <div class="tab-pane fade fade-up" id="tabs-user">
                         <div class="block-content block-content-full">
@@ -231,7 +223,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material">
-                                                <select class="js-select2 form-control" name="config_user_group"
+                                                <select class="select2 form-control" name="config_user_group"
                                                         style="width: 100%;"
                                                         data-placeholder="Choose one.." required>
                                                     <option></option>
@@ -273,12 +265,10 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-material form-material-primary">
-                                                <input class="js-maxlength form-control" type="number"
+                                                <input class="form-control" type="number"
                                                        name="config_login_attempts"
-                                                       maxlength="2" data-always-show="true"
                                                        value="<?php echo $config_login_attempts; ?>" required>
                                                 <label><?php echo $entry_login_attempts; ?></label>
-                                                <div class="help-block text-right">2 Numbers Max</div>
                                             </div>
                                         </div>
                                     </div>
@@ -300,7 +290,7 @@
                                 <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 push-30-t push-30">
                                     <div class="form-group">
                                         <label><?php echo $entry_mail_engine; ?></label>
-                                        <select class="js-select2 form-control" name="config_mail_engine" style="width: 100%;"
+                                        <select class="select2 form-control" name="config_mail_engine" style="width: 100%;"
                                                 data-placeholder="Choose one.." required>
                                             <option></option>
                                             <?php if ($config_mail_engine === 'mail') { ?>
@@ -317,7 +307,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <label><?php echo $entry_mail_secure; ?></label>
-                                        <select class="js-select2 form-control" name="config_mail_secure" style="width: 100%;"
+                                        <select class="select2 form-control" name="config_mail_secure" style="width: 100%;"
                                                 data-placeholder="Choose one..">
                                             <option>-- None --</option>
                                             <option value="ssl" <?php echo isset($config_mail_secure) && $config_mail_secure === 'ssl' ? 'selected' : ''; ?>>
@@ -392,7 +382,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-12">
                                                 <div class="form-material">
-                                                    <select class="js-select2 form-control" name="config_compression">
+                                                    <select class="select2 form-control" name="config_compression">
                                                         <option value="0">0</option>
                                                         <option value="1" <?php echo $config_compression == '1' ? 'selected' : ''; ?>>
                                                             1
@@ -459,12 +449,10 @@
                                         <div class="form-group required">
                                             <div class="col-xs-12">
                                                 <div class="form-material form-material-primary">
-                                                    <input class="js-maxlength form-control" type="text"
+                                                    <input class="form-control" type="text"
                                                            name="config_error_filename"
-                                                           maxlength="64" data-always-show="true"
                                                            value="<?php echo $config_error_filename; ?>" required>
                                                     <label><?php echo $entry_error_filename; ?> <span class="text-danger">*</span></label>
-                                                    <div class="help-block text-right">64 Character Max</div>
                                                 </div>
                                             </div>
                                         </div>

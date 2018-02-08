@@ -49,7 +49,7 @@
                 </a>
             </div>
             <div class="col-xs-12 col-sm-4">
-                <a class="block block-link-hover3 text-center js-swal-confirm">
+                <a class="block block-link-hover3 text-center swal">
                     <div class="block-content block-content-full">
                         <div class="h1 font-w700 text-danger"><i class="fa fa-times"></i></div>
                     </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="block-content">
                 <form id="form" enctype="multipart/form-data" method="post" action="<?php echo $delete; ?>">
-                <table class="table table-bordered table-hover table-striped js-dataTable-full js-table-checkable">
+                <table class="table table-bordered table-hover table-striped table-checkable">
                     <thead>
                     <tr>
                         <th id="selected" class="text-center" style="width: 70px;">
@@ -109,13 +109,7 @@
                                             </a>
                                         </div>
                                         <div class="btn-group">
-                                            <a href="<?php echo $delete; ?>&id=<?php echo $banner['id']; ?>"
-                                               onclick="return false"
-                                               data-toggle="tooltip"
-                                               title="<?php echo $button_delete; ?>"
-                                               class="btn btn-sm btn-default js-swal-confirm">
-                                                <i class="fa fa-close text-danger"></i>
-                                            </a>
+                                            <button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-sm btn-default swal"><i class="fa fa-close text-danger"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -150,4 +144,7 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-
+<script>
+    App.vendor('alert');
+    App.vendor('table');
+</script>

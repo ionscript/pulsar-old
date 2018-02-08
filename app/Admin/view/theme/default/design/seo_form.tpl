@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post" action="<?php echo $action; ?>">
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post" action="<?php echo $action; ?>">
             <div class="block">
                 <div class="block-header bg-gray-lighter">
                     <h3 class="block-title"><?php echo $title; ?></h3>
@@ -43,44 +43,47 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="query"
-                                               value="<?php echo $query; ?>" minlength="3" maxlength="64"
+                                        <input class="form-control"
+                                               type="text"
+                                               name="query"
+                                               value="<?php echo $query; ?>"
+                                               minlength="3"
                                                data-always-show="true"
                                                required/>
                                         <label><?php echo $entry_query; ?> <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">64 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="keyword"
-                                               value="<?php echo $keyword; ?>" maxlength="64"
-                                               data-always-show="true"/>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="keyword"
+                                               value="<?php echo $keyword; ?>"
+                                               />
                                         <label><?php echo $entry_keyword; ?></label>
-                                        <div class="help-block text-right">64 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="push"
-                                               value="<?php echo $push; ?>" maxlength="64"
-                                               data-always-show="true"
+                                        <input class="form-control"
+                                               type="text"
+                                               name="push"
+                                               value="<?php echo $push; ?>"
                                                />
                                         <label><?php echo $entry_push; ?></label>
-                                        <div class="help-block text-right">64 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <select name="code" class="form-control" required>
+                                        <select name="language_id" class="form-control" required>
                                             <?php foreach ($languages as $language) { ?>
-                                                <?php if ($language['id'] === $language_id) { ?>
+                                                <?php if ($language['id'] == $language_id) { ?>
                                                     <option value="<?php echo $language['id']; ?>" selected="selected"><?php echo $language['name']; ?></option>
                                                 <?php } else { ?>
                                                     <option value="<?php echo $language['id']; ?>"><?php echo $language['name']; ?></option>

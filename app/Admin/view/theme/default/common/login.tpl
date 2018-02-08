@@ -16,14 +16,6 @@
     <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>
-<!--    <script type="text/javascript" src="vendor/jquery.placeholder/jquery.placeholder.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/datatables/media/js/jquery.dataTables.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery-slimscroll/jquery.slimscroll.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery-scrollLock/jquery-scrollLock.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/select2/dist/js/select2.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery.tagsinput/src/jquery.tagsinput.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>-->
-<!--    <script type="text/javascript" src="vendor/summernote/dist/summernote.js"></script>-->
     <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -73,45 +65,5 @@
 <div class="pulldown push-30-t text-center animated fadeInUp">
     <small class="text-muted"><?php echo $text_footer; ?><br /><?php echo $text_version; ?></small>
 </div>
-<script>
-    var FormValidation = function() {
-        // Init Forms Validation, for more examples you can check out https://github.com/jzaefferer/jquery-validation
-        var initValidation = function(){
-            jQuery('.validation').validate({
-                ignore: [],
-                errorClass: 'help-block text-right animated fadeInDown',
-                errorElement: 'div',
-                errorPlacement: function(error, e) {
-                    jQuery(e).parents('.form-group > div').append(error);
-                },
-                highlight: function(e) {
-                    var elem = jQuery(e);
-
-                    elem.closest('.form-group').removeClass('has-error').addClass('has-error');
-                    elem.closest('.help-block').remove();
-                },
-                success: function(e) {
-                    var elem = jQuery(e);
-
-                    elem.closest('.form-group').removeClass('has-error');
-                    elem.closest('.help-block').remove();
-                }
-            });
-        };
-
-        return {
-            init: function () {
-                initValidation();
-                jQuery('.js-select2').on('change', function(){
-                    jQuery(this).valid();
-                });
-            }
-        };
-    }();
-
-    // Initialize when page loads
-    jQuery(function(){ FormValidation.init(); });
-</script>
-
 </body>
 </html>

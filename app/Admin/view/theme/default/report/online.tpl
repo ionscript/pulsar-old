@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="block-content">
-                <table class="table table-bordered table-hover table-striped js-dataTable-full js-table-checkable">
+                <table class="table table-bordered table-hover table-striped table-checkable">
                     <thead>
                     <tr>
                         <th><?php echo $column_ip; ?></th>

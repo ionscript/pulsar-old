@@ -38,7 +38,7 @@
                 <?php foreach ($relateds as $related) { ?>
                 <div class="col-sm-4">
                     <a class="block block-link-hover2" href="<?php //echo $related['href']; ?>">
-                        <div class="block-content bg-image" style="background-image: url('img/<?php echo $related['image']; ?>');">
+                        <div class="block-content bg-image" style="background-image: url('img<?php echo $related['image']; ?>');">
                             <h4 class="text-white push-50-t push"><?php echo $related['name']; ?></h4>
                         </div>
                         <div class="block-content block-content-full font-s12">

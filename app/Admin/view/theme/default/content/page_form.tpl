@@ -30,7 +30,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post"
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post"
               action="<?php echo $action; ?>">
             <div class="block">
                 <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
@@ -61,62 +61,56 @@
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-maxlength form-control" type="text"
+                                                        <input id="name<?php echo $language['id']; ?>"
+                                                               class="form-control"
+                                                               type="text"
                                                                name="description[<?php echo $language['id']; ?>][name]"
                                                                value="<?php echo $description[$language['id']]['name']; ?>"
                                                                minlength="3"
-                                                               maxlength="255" data-always-show="true" required/>
-                                                        <label>
-                                                            <?php echo $entry_name; ?> <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="help-block text-right">255 Character Max</div>
+                                                               required/>
+                                                        <label for="name<?php echo $language['id']; ?>"><?php echo $entry_name; ?> <span class="text-danger">*</span></label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12 push-10">
                                                     <div class="form-material form-material-primary">
-                                                        <label>
-                                                            <?php echo $entry_description; ?> <span class="text-danger">*</span>
-                                                        </label>
+                                                        <label><?php echo $entry_description; ?></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 push-10">
-                                                    <textarea class="js-summernote" name="description[<?php echo $language['id']; ?>][description]"><?php echo $description[$language['id']]['description']; ?></textarea>
+                                                    <textarea class="summernote" name="description[<?php echo $language['id']; ?>][description]"><?php echo $description[$language['id']]['description']; ?></textarea>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-maxlength form-control" type="text"
+                                                        <input class="form-control"
+                                                               id="meta-title<?php echo $language['id']; ?>"
+                                                               type="text"
                                                                name="description[<?php echo $language['id']; ?>][meta_title]"
-                                                               minlength="3" maxlength="255" data-always-show="true"
+                                                               minlength="3"
                                                                value="<?php echo $description[$language['id']]['meta_title']; ?>"
                                                                required>
-                                                        <label>
-                                                            <?php echo $entry_meta_title; ?> <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="help-block text-right">255 Character Max</div>
+                                                        <label for="meta-title<?php echo $language['id']; ?>"><?php echo $entry_meta_title; ?> <span class="text-danger">*</span></label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <textarea class="js-maxlength form-control"
+                                                        <textarea class="form-control"
                                                                   name="description[<?php echo $language['id']; ?>][meta_description]"
-                                                                  rows="5" maxlength="255"
-                                                                  data-always-show="true"><?php echo $description[$language['id']]['meta_description']; ?></textarea>
+                                                                  rows="5"><?php echo $description[$language['id']]['meta_description']; ?></textarea>
                                                         <label><?php echo $entry_meta_description; ?></label>
-                                                        <div class="help-block text-right">255 Character Max</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-tags-input form-control" type="text"
+                                                        <input class="tags-input form-control" type="text"
                                                                name="description[<?php echo $language['id']; ?>][meta_keyword]"
                                                                value="<?php echo $description[$language['id']]['meta_keyword']; ?>">
                                                         <label><?php echo $entry_meta_keyword; ?></label>
@@ -188,7 +182,9 @@
 <!-- END Main Container -->
 <?php echo $footer; ?>
 <script type="text/javascript">
-    App.initVendors('summernote');
     $('#language a:first').tab('show');
-
+</script>
+<script type="text/javascript">
+    App.vendor('summernote');
+    App.vendor('tags');
 </script>

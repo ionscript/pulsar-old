@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post"
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post"
               action="<?php echo $action; ?>">
             <div class="block">
                 <div class="block-header bg-gray-lighter">
@@ -44,12 +44,10 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="name"
-                                               value="<?php echo $name; ?>" minlength="3" maxlength="255"
-                                               data-always-show="true"
+                                        <input class="form-control" type="text" name="name"
+                                               value="<?php echo $name; ?>" minlength="3"
                                                required/>
                                         <label><?php echo $entry_name; ?> <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">255 Character Max</div>
                                     </div>
                                 </div>
                             </div>
@@ -72,22 +70,20 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="number" name="width"
+                                        <input class="form-control" type="number" name="width"
                                                minlength="2"
-                                               maxlength="4" data-always-show="true" value="<?php echo $width; ?>">
+                                              value="<?php echo $width; ?>">
                                         <label><?php echo $entry_width; ?></label>
-                                        <div class="help-block text-right">4 Character Max</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="number" name="height"
-                                               minlength="2" maxlength="4" data-always-show="true"
+                                        <input class="form-control" type="number" name="height"
+                                               minlength="2"
                                                value="<?php echo $height; ?>">
                                         <label><?php echo $entry_height; ?></label>
-                                        <div class="help-block text-right">4 Character Max</div>
                                     </div>
                                 </div>
                             </div>

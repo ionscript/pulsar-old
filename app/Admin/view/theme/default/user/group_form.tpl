@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post" action="<?php echo $action; ?>">
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post" action="<?php echo $action; ?>">
             <div class="block">
                 <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
                     <li class="active">
@@ -62,15 +62,14 @@
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-maxlength form-control" type="text"
+                                                        <input class="form-control" type="text"
                                                                name="description[<?php echo $language['id']; ?>][name]"
                                                                value="<?php echo $description[$language['id']]['name']; ?>"
                                                                minlength="3"
-                                                               maxlength="255" data-always-show="true" required/>
+                                                               required/>
                                                         <label>
                                                             <?php echo $entry_name; ?> <span class="text-danger">*</span>
                                                         </label>
-                                                        <div class="help-block text-right">255 Character Max</div>
                                                     </div>
                                                 </div>
                                             </div>

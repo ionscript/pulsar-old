@@ -35,28 +35,7 @@
                 <p><?php echo $success; ?></p>
             </div>
         <?php } ?>
-        <div class="row">
-<!--            <div class="col-xs-6 col-sm-4">-->
-<!--                <a class="block block-link-hover3 text-center" href="--><?php //echo $add; ?><!--">-->
-<!--                    <div class="block-content block-content-full">-->
-<!--                        <div class="h1 font-w700 text-success"><i class="fa fa-plus"></i></div>-->
-<!--                    </div>-->
-<!--                    <div class="block-content block-content-full block-content-mini bg-gray-lighter text-success font-w600">-->
-<!--                        --><?php //echo $button_add; ?>
-<!--                    </div>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="col-xs-6 col-sm-4">-->
-<!--                <a class="block block-link-hover3 text-center js-swal-confirm">-->
-<!--                    <div class="block-content block-content-full">-->
-<!--                        <div class="h1 font-w700 text-danger"><i class="fa fa-times"></i></div>-->
-<!--                    </div>-->
-<!--                    <div class="block-content block-content-full block-content-mini bg-gray-lighter text-danger font-w600">-->
-<!--                        --><?php //echo $button_delete; ?>
-<!--                    </div>-->
-<!--                </a>-->
-<!--            </div>-->
-        </div>
+
         <div class="block">
             <div class="block-header bg-gray-lighter">
                 <h3 class="block-title"><?php echo $text_list; ?></h3>
@@ -64,7 +43,7 @@
             <div class="block-content">
                 <p class="push-30"></p>
                 <div class="table-responsive">
-                    <table class="js-table-sections table table-striped table-vcenter">
+                    <table class="table-sections table table-striped table-vcenter">
                         <thead>
                         <tr>
                             <th style="width: 30px;"></th>
@@ -77,7 +56,7 @@
                         <?php if ($extensions) { ?>
 
                         <?php foreach ($extensions as $extension) { ?>
-                        <tbody class="open <?php echo $extension['installed'] && $extension['module'] ? 'js-table-sections-header' : ''; ?>">
+                        <tbody class="open <?php echo $extension['installed'] && $extension['module'] ? 'table-sections-header' : ''; ?>">
                             <tr>
                                 <td class="text-center">
                                     <?php echo $extension['installed'] && $extension['module'] ? '<i class="fa fa-angle-right"></i>' : ''; ?>
@@ -127,19 +106,10 @@
                                                 <i class="fa fa-download"></i>
                                             </a>
                                         </div>
-                                        <!--                                <button type="button" class="btn btn-primary" disabled="disabled"><i class="fa fa-pencil"></i></button>-->
                                     <?php } ?>
-
-
                                 </td>
                             </tr>
                                 </tbody>
-
-
-
-
-
-
                                 <tbody>
                                 <?php foreach ($extension['module'] as $module) { ?>
                                     <tr>
@@ -162,7 +132,7 @@
                                                    onclick="return false"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_delete; ?>"
-                                                   class="btn btn-sm btn-default js-swal-confirm">
+                                                   class="btn btn-sm btn-default swal">
                                                     <i class="fa fa-close"></i>
                                                 </a>
                                             </div>
@@ -171,18 +141,6 @@
                                 <?php } ?>
                                 </tbody>
                         <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
                         <?php } else { ?>
                             <tbody>
                             <tr>
@@ -190,7 +148,6 @@
                             </tr>
                             </tbody>
                         <?php } ?>
-
                     </table>
                 </div>
             </div>
@@ -199,3 +156,6 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
+<script>
+    App.vendor('alert');
+</script>

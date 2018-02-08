@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post" action="<?php echo $action; ?>">
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post" action="<?php echo $action; ?>">
             <div class="block">
                 <div class="block-header bg-gray-lighter">
                     <h3 class="block-title">Info</h3>
@@ -43,12 +43,10 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="name"
-                                               value="<?php echo $name; ?>" minlength="3" maxlength="64"
-                                               data-always-show="true"
+                                        <input class="form-control" type="text" name="name"
+                                               value="<?php echo $name; ?>" minlength="3"
                                                required/>
-                                        <label>Title <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">64 Character Max</div>
+                                        <label><?php echo $entry_name; ?> <span class="text-danger">*</span></label>
                                     </div>
                                 </div>
                             </div>
@@ -70,17 +68,15 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <input class="js-maxlength form-control" type="text" name="locale"
-                                               value="<?php echo $locale; ?>" maxlength="64"
-                                               data-always-show="true"
+                                        <input class="form-control" type="text" name="locale"
+                                               value="<?php echo $locale; ?>"
                                                required/>
-                                        <label>Locale <span class="text-danger">*</span></label>
-                                        <div class="help-block text-right">64 Character Max</div>
+                                        <label><?php echo $entry_locale; ?> <span class="text-danger">*</span></label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-12">Published?</label>
+                                <label class="col-xs-12"><?php echo $entry_status; ?>?</label>
                                 <div class="col-xs-12">
                                     <label class="css-input switch switch-sm switch-primary">
                                         <input type="checkbox"
@@ -90,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-sm btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-sm btn-primary" type="submit"><?php echo $button_save; ?></button>
                                 </div>
                             </div>
                         </div>

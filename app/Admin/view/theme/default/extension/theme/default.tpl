@@ -32,7 +32,7 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post"
+        <form id="form" enctype="multipart/form-data" class="form-horizontal validation" method="post"
               action="<?php echo $action; ?>">
             <div class="block">
                 <div class="block-header bg-gray-lighter">
@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <select name="theme_default_class[]" class="form-control js-select2">
+                                        <select name="theme_default_class[]" class="form-control select2">
                                             <?php if (strpos($theme_default_class, 'sidebar-l')) { ?>
                                                 <option value="sidebar-l" selected="selected">Left</option>
                                             <?php } else { ?>
@@ -137,7 +137,7 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material form-material-primary">
-                                        <select name="theme_default_theme" class="form-control js-select2">
+                                        <select name="theme_default_theme" class="form-control select2">
                                             <?php if ($theme_default_theme == '') { ?>
                                                 <option value="" selected="selected">Default</option>
                                             <?php } else { ?>

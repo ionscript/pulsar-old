@@ -72,13 +72,7 @@
                                   </a>
                               </div>
                               <div class="btn-group">
-                                  <a href="<?php echo $delete; ?>&id=<?php echo $language['id']; ?>"
-                                     onclick="return false"
-                                     data-toggle="tooltip"
-                                     title="Delete"
-                                     class="btn btn-sm btn-default js-swal-confirm">
-                                      <i class="fa fa-close text-danger"></i>
-                                  </a>
+                                  <button type="button" data-toggle="tooltip" title="Delete" class="btn btn-sm btn-default swal"><i class="fa fa-close text-danger"></i></button>
                               </div>
                           </td>
                       </tr>
@@ -97,5 +91,6 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-
-
+<script>
+    App.vendor('alert');
+</script>

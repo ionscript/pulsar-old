@@ -30,7 +30,7 @@ class PostController extends Controller
             $data['author'] = $post_info['author'];
             $data['date'] = $post_info['date'];
             $data['ago'] = $post_info['ago'];
-            $data['image'] = '/img'.$post_info['image'];
+            $data['image'] = 'img'.$post_info['image'];
 
 			$data['relateds'] = $this->model('content/post')->getPostRelated($id);
 

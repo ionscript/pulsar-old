@@ -53,7 +53,7 @@
                 <div class="block-content block-content-full">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 push-30-t push-30">
-                            <form id="restore" class="form-horizontal js-validation-material" enctype="multipart/form-data"
+                            <form id="restore" class="form-horizontal validation" enctype="multipart/form-data"
                                   action="<?php echo $restore; ?>" method="post">
                                 <div class="form-group">
                                     <div class="col-xs-12">
@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <form id="backup" class="form-horizontal js-validation-material" enctype="multipart/form-data"
+                            <form id="backup" class="form-horizontal validation" enctype="multipart/form-data"
                                   action="<?php echo $backup; ?>" method="post">
                                 <div class="form-group">
                                     <div class="col-xs-12">
