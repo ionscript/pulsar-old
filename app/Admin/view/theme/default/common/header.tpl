@@ -30,8 +30,14 @@
     <!-- END Stylesheets -->
 
     <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="vendor/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <script type="text/javascript" src="vendor/select2/dist/js/select2.js"></script>
+    <script type="text/javascript" src="vendor/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="vendor/summernote/dist/summernote.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
 
     <?php foreach ($scripts as $script) { ?>
         <script type="text/javascript" src="<?php echo $script; ?>"></script>
@@ -88,12 +94,6 @@
                         </li>
                     </ul>
                 </div>
-            </li>
-            <li>
-                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                    <i class="fa fa-tasks"></i>
-                </button>
             </li>
         </ul>
         <!-- END Header Navigation Right -->

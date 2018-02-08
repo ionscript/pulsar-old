@@ -30,22 +30,13 @@
                 </a>
             </div>
         </div>
-        <form id="form" enctype="multipart/form-data" class="form-horizontal js-validation-material" method="post"
-              action="<?php echo $action; ?>">
+        <form id="form" enctype="multipart/form-data" class="validation form-horizontal" method="post" action="<?php echo $action; ?>" novalidate="novalidate" autocomplete="off">
             <div class="block">
                 <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
-                    <li class="active">
-                        <a href="#tabs-general"><i class="fa fa-home"></i> <?php echo $tab_general; ?></a>
-                    </li>
-                    <li class="">
-                        <a href="#tabs-data"><i class="fa fa-chain"></i> <?php echo $tab_data; ?></a>
-                    </li>
-                    <li>
-                        <a href="#tab-image"><i class="fa fa-fw fa-picture-o"></i> <?php echo $tab_image; ?></a>
-                    </li>
-                    <li>
-                        <a href="#tab-seo"><i class="fa fa-fw fa-link"></i> <?php echo $tab_seo; ?></a>
-                    </li>
+                    <li class="active"><a href="#tabs-general"><i class="fa fa-home"></i> <?php echo $tab_general; ?></a></li>
+                    <li class=""><a href="#tabs-data"><i class="fa fa-chain"></i> <?php echo $tab_data; ?></a></li>
+                    <li><a href="#tab-image"><i class="fa fa-fw fa-picture-o"></i> <?php echo $tab_image; ?></a></li>
+                    <li><a href="#tab-seo"><i class="fa fa-fw fa-link"></i> <?php echo $tab_seo; ?></a></li>
                 </ul>
                 <div class="block-content tab-content">
                     <!-- Start General Tab -->
@@ -64,18 +55,11 @@
                                 <?php foreach ($languages as $language) { ?>
                                     <div class="tab-pane fade fade-right" id="language<?php echo $language['id']; ?>">
                                         <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 push-30-t push-30">
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <div class="col-xs-12">
+                                                    <label class="control-label" for="name<?php echo $language['id']; ?>"><?php echo $entry_name; ?></label>
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-maxlength form-control" type="text"
-                                                               name="description[<?php echo $language['id']; ?>][name]"
-                                                               value="<?php echo $description[$language['id']]['name']; ?>"
-                                                               minlength="3"
-                                                               maxlength="255" data-always-show="true" required/>
-                                                        <label>
-                                                            <?php echo $entry_name; ?><span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="help-block text-right">255 Character Max</div>
+                                                        <input id="name<?php echo $language['id']; ?>" type="text" class="form-control" name="description[<?php echo $language['id']; ?>][name]" value="<?php echo $description[$language['id']]['name']; ?>" minlength="3" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,42 +70,33 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 push-10">
-                                                    <textarea class="js-summernote"
-                                                              name="description[<?php echo $language['id']; ?>][description]"><?php echo $description[$language['id']]['description']; ?></textarea>
+                                                    <textarea class="summernote" name="description[<?php echo $language['id']; ?>][description]"><?php echo $description[$language['id']]['description']; ?></textarea>
                                                 </div>
                                             </div>
                                             <br>
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <div class="col-xs-12">
+                                                    <label class="control-label" for="meta-title<?php echo $language['id']; ?>"><?php echo $entry_meta_title; ?></label>
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-maxlength form-control" type="text"
-                                                               name="description[<?php echo $language['id']; ?>][meta_title]"
-                                                               minlength="3" maxlength="255" data-always-show="true"
-                                                               value="<?php echo $description[$language['id']]['meta_title']; ?>"
-                                                               required>
-                                                        <label><?php echo $entry_meta_title; ?>
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="help-block text-right">255 Character Max</div>
+                                                        <input id="meta-title<?php echo $language['id']; ?>" type="text" class="form-control" name="description[<?php echo $language['id']; ?>][meta_title]" minlength="3" value="<?php echo $description[$language['id']]['meta_title']; ?>" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <textarea class="js-maxlength form-control"
+                                                        <textarea class="form-control"
                                                                   name="description[<?php echo $language['id']; ?>][meta_description]"
                                                                   rows="5" maxlength="255"
                                                                   data-always-show="true"><?php echo $description[$language['id']]['meta_description']; ?></textarea>
                                                         <label><?php echo $entry_meta_description; ?></label>
-                                                        <div class="help-block text-right">255 Character Max</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-tags-input form-control" type="text"
+                                                        <input class="tags-input form-control" type="text"
                                                                name="description[<?php echo $language['id']; ?>][meta_keyword]"
                                                                value="<?php echo $description[$language['id']]['meta_keyword']; ?>">
                                                         <label><?php echo $entry_meta_keyword; ?></label>
@@ -131,7 +106,7 @@
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="js-tags-input form-control" type="text"
+                                                        <input class="tags-input form-control" type="text"
                                                                name="description[<?php echo $language['id']; ?>][tag]"
                                                                value="<?php echo $description[$language['id']]['tag']; ?>">
                                                         <label><?php echo $entry_tag; ?></label>
@@ -173,9 +148,22 @@
                                         <div class="form-group">
                                             <div class="col-md-6">
                                                 <div class="form-material input-group">
-                                                    <input class="js-datepicker form-control" type="text" name="date_available" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $post['date_available']; ?>" required>
+                                                    <input class="datepicker form-control" type="text" name="date_available" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $post['date_available']; ?>" required>
                                                     <label><?php echo $entry_date_available; ?></label>
                                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label><?php echo $entry_related; ?></label>
+                                                <input type="text" name="related" value="" placeholder="<?php echo $entry_related; ?>" class="form-control"/>
+                                                <div id="related" class="well well-sm" style="height: 150px; overflow: auto;">
+                                                    <?php foreach ($relateds as $related) { ?>
+                                                    <div id="related<?php echo $related['id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $related['name']; ?>
+                                                        <input type="hidden" name="related[]" value="<?php echo $related['id']; ?>"/>
+                                                    </div>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,19 +174,6 @@
                                                     <input type="checkbox"
                                                            name="status" <?php echo $post['status'] ? 'checked' : ''; ?> value="1"><span></span>
                                                 </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label"><?php echo $entry_related; ?></label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="related" value="" placeholder="<?php echo $entry_related; ?>" class="form-control"/>
-                                                <div id="related" class="well well-sm" style="height: 150px; overflow: auto;">
-                                                    <?php foreach ($relateds as $related) { ?>
-                                                    <div id="related<?php echo $related['id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $related['name']; ?>
-                                                        <input type="hidden" name="related[]" value="<?php echo $related['id']; ?>"/>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -266,8 +241,10 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-
 <script type="text/javascript">
+    // LAnguage
+    $('#language a:first').tab('show');
+
     // Category
     $('input[name=\'category\']').autocomplete({
         'source': function (request, response) {
@@ -329,9 +306,7 @@
     $('#related').delegate('.fa-minus-circle', 'click', function() {
         $(this).parent().remove();
     });
-
 </script>
-
 <script type="text/javascript">
-    $('#language a:first').tab('show');
+    App.vendor('summernote');
 </script>

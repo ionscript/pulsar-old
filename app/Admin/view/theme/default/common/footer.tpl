@@ -9,12 +9,9 @@
 <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
-
-<!--<script>-->
-<!--    $(function(){-->
-<!--        App.init();-->
-<!--    });-->
-<!--</script>-->
-
+<script type="text/javascript" src="js/autocomplete.js"></script>
+<script type="text/javascript" src="js/filemanager.js"></script>
+<script type="text/javascript" src="js/summernote.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

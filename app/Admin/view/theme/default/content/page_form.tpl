@@ -188,5 +188,7 @@
 <!-- END Main Container -->
 <?php echo $footer; ?>
 <script type="text/javascript">
+    App.initVendors('summernote');
     $('#language a:first').tab('show');
+
 </script>
