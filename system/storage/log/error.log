@@ -1,15 +1,13 @@
-2018-02-08T14:58:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:58:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:58:27+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:58:27+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:16+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:20+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:20+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:20+02:00 NOTICE (5) Undefined variable: text_powered in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\footer.tpl on line 39
-2018-02-08T14:59:25+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T14:59:25+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T15:02:23+02:00 ERR (3) Missing route matches; unsure how to retrieve action in C:\wamp\www\pulsar-public\system\vendor\ionscript\ions-mvc\src\Controller.php on line 46
-2018-02-08T15:02:28+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T15:02:28+02:00 NOTICE (5) Undefined index: active in C:\wamp\www\pulsar-public\app\Application\view\theme\default\common\header.tpl on line 141
-2018-02-08T15:03:21+02:00 NOTICE (5) Undefined index: add in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\extension\extension\module.tpl on line 73
+2018-02-08T17:05:35+02:00 NOTICE (5) Undefined variable: text_form in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 9
+2018-02-08T17:05:35+02:00 NOTICE (5) Undefined variable: breadcrumbs in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:05:35+02:00 WARN (4) Invalid argument supplied for foreach() in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:06:28+02:00 NOTICE (5) Undefined variable: breadcrumbs in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:06:28+02:00 WARN (4) Invalid argument supplied for foreach() in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:06:48+02:00 NOTICE (5) Undefined variable: breadcrumbs in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:06:48+02:00 WARN (4) Invalid argument supplied for foreach() in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:19:11+02:00 NOTICE (5) Undefined variable: breadcrumbs in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:19:11+02:00 WARN (4) Invalid argument supplied for foreach() in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:20:26+02:00 NOTICE (5) Undefined variable: breadcrumbs in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:20:26+02:00 WARN (4) Invalid argument supplied for foreach() in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\category_form.tpl on line 14
+2018-02-08T17:40:41+02:00 NOTICE (5) Undefined variable: text_form in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\post_form.tpl on line 9
+2018-02-08T17:41:20+02:00 NOTICE (5) Undefined variable: text_form in C:\wamp\www\pulsar-public\app\Admin\view\theme\default\content\post_form.tpl on line 9

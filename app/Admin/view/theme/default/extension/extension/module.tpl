@@ -35,7 +35,6 @@
                 <p><?php echo $success; ?></p>
             </div>
         <?php } ?>
-
         <div class="block">
             <div class="block-header bg-gray-lighter">
                 <h3 class="block-title"><?php echo $text_list; ?></h3>
@@ -52,9 +51,7 @@
                             <th class="text-center" style="width: 100px;"><?php echo $column_action; ?></th>
                         </tr>
                         </thead>
-
                         <?php if ($extensions) { ?>
-
                         <?php foreach ($extensions as $extension) { ?>
                         <tbody class="open <?php echo $extension['installed'] && $extension['module'] ? 'table-sections-header' : ''; ?>">
                             <tr>
@@ -67,10 +64,9 @@
                                 </td>
                                 <td class="text-center">
                                     <?php if ($extension['installed']) { ?>
-
                                         <?php if ($extension['module']) { ?>
                                             <div class="btn-group">
-                                                <a href="<?php echo $extension['add']; ?>"
+                                                <a href="<?php echo $extension['edit']; ?>"
                                                    data-toggle="tooltip"
                                                    title="<?php echo $button_add; ?>"
                                                    class="btn btn-sm btn-success">
@@ -96,7 +92,6 @@
                                                 <i class="fa fa-minus-circle"></i>
                                             </a>
                                         </div>
-
                                     <?php } else { ?>
                                         <div class="btn-group">
                                             <a href="<?php echo $extension['install']; ?>"
@@ -155,4 +150,3 @@
 </main>
 <!-- END Main Container -->
 <?php echo $footer; ?>
-

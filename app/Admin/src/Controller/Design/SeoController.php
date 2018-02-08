@@ -78,17 +78,7 @@ class SeoController extends Controller
             $page = 1;
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $this->session->get('token'))
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('seo', 'token=' . $this->session->get('token'))
-        ];
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         $data['add'] = $this->url->link('seo/add', 'token=' . $this->session->get('token'));
         $data['edit'] = $this->url->link('seo/edit', 'token=' . $this->session->get('token'));
@@ -163,6 +153,8 @@ class SeoController extends Controller
         } else {
             $data['error'] = '';
         }
+
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if (!$this->request->hasQuery('id')) {
             $data['action'] = $this->url->link('seo/add', 'token=' . $this->session->get('token'));
@@ -240,5 +232,22 @@ class SeoController extends Controller
         }
 
         return !$this->error;
+    }
+
+    protected function breadcrumbs()
+    {
+        $breadcrumbs = [];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('text_dashboard'),
+            'href' => ''
+        ];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('seo', 'token=' . $this->session->get('token'))
+        ];
+
+        return $breadcrumbs;
     }
 }

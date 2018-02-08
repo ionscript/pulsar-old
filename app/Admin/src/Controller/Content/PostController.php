@@ -84,17 +84,7 @@ class PostController extends Controller
             $data['success'] = '';
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $token)
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => ''
-        ];
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if ($this->request->hasQuery('page')) {
             $data['page'] = (int)$this->request->getQuery('page');
@@ -178,6 +168,7 @@ class PostController extends Controller
                 }
             }
 
+            $data['text_form'] = $this->language->get('text_edit');
             $data['action'] = $this->url->link('post/edit', 'token=' . $token . '&id=' . $this->request->getQuery('id'));
 
         } else {
@@ -192,8 +183,11 @@ class PostController extends Controller
             }
 
             $data['languages'] = $languages;
+            $data['text_form'] = $this->language->get('text_add');
             $data['action'] = $this->url->link('post/add', 'token=' . $token);
         }
+
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if ($this->error) {
             $data['error'] = $this->error;
@@ -269,6 +263,22 @@ class PostController extends Controller
         return !(bool)$this->error;
     }
 
+    protected function breadcrumbs()
+    {
+        $breadcrumbs = [];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('text_dashboard'),
+            'href' => ''
+        ];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('post', 'token=' . $this->session->get('token'))
+        ];
+
+        return $breadcrumbs;
+    }
 
     public function autocompleteAction() {
         $json = [];

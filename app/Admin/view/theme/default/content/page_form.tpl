@@ -1,6 +1,27 @@
 <?php echo $header; ?>
 <!-- Main Container -->
 <main id="main-container">
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    <?php echo $heading_title; ?>
+                    <small><?php echo $text_form; ?></small>
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                        <?php if ($breadcrumb['href']) { ?>
+                            <li><a class="link-effect" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                        <?php } else { ?>
+                            <li><?php echo $breadcrumb['text']; ?></li>
+                        <?php } ?>
+                    <?php } ?>
+                </ol>
+            </div>
+        </div>
+    </div>
     <div class="content content-boxed">
         <?php if ($error) { ?>
             <div class="alert alert-danger alert-dismissable">

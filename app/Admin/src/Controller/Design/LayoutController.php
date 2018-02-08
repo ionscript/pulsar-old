@@ -78,18 +78,6 @@ class LayoutController extends Controller
             $page = 1;
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $this->session->get('token'))
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('layout', 'token=' . $this->session->get('token'))
-        ];
-
         $data['add'] = $this->url->link('layout/add', 'token=' . $this->session->get('token'));
         $data['delete'] = $this->url->link('layout/delete', 'token=' . $this->session->get('token'));
 
@@ -101,6 +89,8 @@ class LayoutController extends Controller
         ];
 
         $data['layouts'] = $this->model('design/layout')->getLayouts($options);
+
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if ($this->error) {
             $data['error'] = $this->error;
@@ -134,33 +124,23 @@ class LayoutController extends Controller
 
     protected function getForm()
     {
-
         if ($this->error) {
             $data['error'] = $this->error;
         } else {
             $data['error'] = '';
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $this->session->get('token'))
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('layout', 'token=' . $this->session->get('token'))
-        ];
-
         if (!$this->request->hasQuery('id')) {
+            $data['text_form'] = $this->language->get('text_add');
             $data['action'] = $this->url->link('layout/add', 'token=' . $this->session->get('token'));
         } else {
+            $data['text_form'] = $this->language->get('text_edit');
             $data['action'] = $this->url->link('layout/edit', 'token=' . $this->session->get('token') . '&id=' . $this->request->getQuery('id'));
         }
 
         $data['cancel'] = $this->url->link('layout', 'token=' . $this->session->get('token'));
 
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if ($this->request->hasQuery('id') && !$this->request->isPost()) {
             $layout_info = $this->model('design/layout')->getLayout($this->request->getQuery('id'));
@@ -298,5 +278,22 @@ class LayoutController extends Controller
         }
 
         return !$this->error;
+    }
+
+    protected function breadcrumbs()
+    {
+        $breadcrumbs = [];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('text_dashboard'),
+            'href' => ''
+        ];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('layout', 'token=' . $this->session->get('token'))
+        ];
+
+        return $breadcrumbs;
     }
 }

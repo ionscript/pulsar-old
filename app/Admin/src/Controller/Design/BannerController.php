@@ -72,17 +72,7 @@ class BannerController extends Controller
             $data['page'] = 1;
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $token)
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('banner', 'token=' . $token)
-        ];
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         $data['add'] = $this->url->link('banner/add', 'token=' . $token);
         $data['edit'] = $this->url->link('banner/edit', 'token=' . $token);
@@ -97,8 +87,8 @@ class BannerController extends Controller
             'limit' => $data['limit']
         ];
 
-        $data['total']  = $this->model('design/banner')->getTotalBanners();
         $data['banners'] = $this->model('design/banner')->getBanners($options);
+        $data['total']  = $this->model('design/banner')->getTotalBanners();
 
         if ($this->error) {
             $data['error'] = $this->error;
@@ -126,7 +116,6 @@ class BannerController extends Controller
         $pagination->url = $this->url->link('banner', 'token=' . $token . '&page={page}');
 
         $data['pagination'] = $pagination->render();
-
         $data['results'] = $pagination->renderResult($this->language->get('text_pagination'));
 
         $data['header'] = $this->controller('header');
@@ -147,21 +136,13 @@ class BannerController extends Controller
             $data['error'] = '';
         }
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $token)
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('banner', 'token=' . $token)
-        ];
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if (!$this->request->hasQuery('id')) {
+            $data['text_form'] = $this->language->get('text_add');
             $data['action'] = $this->url->link('banner/add', 'token=' . $token);
         } else {
+            $data['text_form'] = $this->language->get('text_edit');
             $data['action'] = $this->url->link('banner/edit', 'token=' . $token . '&id=' . $this->request->getQuery('id'));
         }
 
@@ -233,17 +214,17 @@ class BannerController extends Controller
             $this->error = $this->language->get('error_permission');
         }
 
-        $len = strlen($this->request->getPost('name'));
+        $length = strlen($this->request->getPost('name'));
 
-        if ($len < 3 || $len > 64) {
+        if ($length < 3 || $length > 64) {
             $this->error = $this->language->get('error_name');
         }
 
         if ($this->request->hasPost('image')) {
             foreach ($this->request->getPost('image') as $language_id => $value) {
                 foreach ($value as $id => $image) {
-                    $len = strlen($image['title']);
-                    if ($len < 2 || $len > 64) {
+                    $length = strlen($image['title']);
+                    if ($length < 2 || $length > 64) {
                         $this->error = $this->language->get('error_title');
                     }
                 }
@@ -260,5 +241,23 @@ class BannerController extends Controller
         }
 
         return !$this->error;
+    }
+
+
+    protected function breadcrumbs()
+    {
+        $breadcrumbs = [];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('text_dashboard'),
+            'href' => ''
+        ];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('banner', 'token=' . $this->session->get('token'))
+        ];
+
+        return $breadcrumbs;
     }
 }

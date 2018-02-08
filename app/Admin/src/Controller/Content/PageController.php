@@ -101,17 +101,7 @@ class PageController extends Controller
         $data['edit'] = $this->url->link('page/edit', 'token=' . $this->session->get('token'));
         $data['delete'] = $this->url->link('page/delete', 'token=' . $this->session->get('token'));
 
-        $data['breadcrumbs'] = [];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('text_dashboard'),
-            'href' => $this->url->link('dashboard', 'token=' . $this->session->get('token'))
-        ];
-
-        $data['breadcrumbs'][] = [
-            'text' => $this->language->get('heading_title'),
-            'href' => ''
-        ];
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         $pagination = new Pagination();
         $pagination->total = $data['total'];
@@ -135,6 +125,7 @@ class PageController extends Controller
             $data = $this->model('content/page')->getPage($this->request->getQuery('id'));
             $data['description'] = $this->model('content/page')->getPageDescriptions($this->request->getQuery('id'));
             $data['languages'] = $this->model('localisation/language')->getLanguages();
+            $data['text_form'] = $this->language->get('text_edit');
             $data['action'] = $this->url->link('page/edit', 'token=' . $this->session->get('token') . '&id=' . $this->request->getQuery('id'));
         } else {
             $data = $this->model('content/page')->getSchema('page');
@@ -146,8 +137,11 @@ class PageController extends Controller
             }
 
             $data['languages'] = $languages;
+            $data['text_form'] = $this->language->get('text_add');
             $data['action'] = $this->url->link('page/add', 'token=' . $this->session->get('token'));
         }
+
+        $data['breadcrumbs'] = $this->breadcrumbs();
 
         if ($this->error) {
             $data['error'] = $this->error;
@@ -163,6 +157,23 @@ class PageController extends Controller
         // END Layout
 
         $this->response->setContent($this->view('content/page_form', $data));
+    }
+
+    protected function breadcrumbs()
+    {
+        $breadcrumbs = [];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('text_dashboard'),
+            'href' => ''
+        ];
+
+        $breadcrumbs[] = [
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('page', 'token=' . $this->session->get('token'))
+        ];
+
+        return $breadcrumbs;
     }
 
     protected function validateForm()
