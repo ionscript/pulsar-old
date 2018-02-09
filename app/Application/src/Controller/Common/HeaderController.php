@@ -68,7 +68,7 @@ class HeaderController extends Controller
         // Blog
         $data['pages'][] = [
             'name' => $this->language->get('text_blog'),
-            'href' => $this->url->link('category', 'path=' . '1_2'),
+            'href' => $this->url->link('blog'),
             'children' => []
         ];
 
@@ -81,37 +81,6 @@ class HeaderController extends Controller
                 'active' => '',
             ];
         }
-
-        // Support
-        $support = [
-            [
-                'name' => $this->language->get('text_faq'),
-                'href' => $this->url->link('content/support'),
-                'children' => [],
-                'active' => '',
-            ],
-            [
-                'name' => $this->language->get('text_team'),
-                'href' => $this->url->link('content/team'),
-                'children' => [],
-                'active' => '',
-            ]
-        ];
-
-        $data['pages'][] = [
-            'name' => $this->language->get('text_support'),
-            'href' => '',
-            'children' => $support,
-            'active' => '',
-        ];
-
-        // Contact
-        $data['pages'][] = [
-            'name' => $this->language->get('text_contact'),
-            'href' => $this->url->link('content/contact'),
-            'children' => [],
-            'active' => '',
-        ];
 
         return $this->view('common/header', $data);
     }

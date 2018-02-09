@@ -70,7 +70,7 @@
                     <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
                     <div class="btn-group">
                         <button class="btn btn-link text-white dropdown-toggle" data-toggle="dropdown" type="button">
-                            <i class="icon-drop"></i>
+                            <i class="fa fa-tint"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right sidebar-mini-hide font-s13">
                             <li>
@@ -147,8 +147,8 @@
             <!-- Header Navigation Left -->
             <ul class="nav-header pull-left">
                 <li class="header-content">
-                    <a class="h5" href="<?php echo $home; ?>">
-                        <i class="fa fa-diamond text-primary"></i> <span class="h4 font-w600 text-white"><?php echo $name; ?></span>
+                    <a class="h4" href="<?php echo $home; ?>">
+                        <i class="fa fa-bullseye text-primary"></i> <span class="h4 font-w600 text-white"><?php echo $name; ?></span>
                     </a>
                 </li>
             </ul>

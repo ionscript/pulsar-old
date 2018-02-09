@@ -34,9 +34,7 @@ class FooterController extends Controller
             $this->model('tool/online')->addOnline($ip, $this->user->getId(), $url, $referer);
         }
 
-        $data['text_copyright'] = sprintf($this->language->get('text_copyright'), $this->config->get('config_name'), date('Y'));
-
-
+        $data['text_copyright'] = sprintf($this->language->get('text_copyright'), $this->config->get('config_name'));
         $data['scripts'] = $this->document->getScripts('footer');
 
         $data['pages'] = [];
@@ -70,35 +68,6 @@ class FooterController extends Controller
             'name' => $this->language->get('text_company'),
             'href' => '',
             'children' => $company,
-            'active' => '',
-        ];
-
-        // Support
-        $support = [
-            [
-                'name' => $this->language->get('text_faq'),
-                'href' => $this->url->link('content/support'),
-                'children' => [],
-                'active' => '',
-            ],
-            [
-                'name' => $this->language->get('text_team'),
-                'href' => $this->url->link('content/team'),
-                'children' => [],
-                'active' => '',
-            ],
-            [
-                'name' => $this->language->get('text_contact'),
-                'href' => $this->url->link('content/contact'),
-                'children' => [],
-                'active' => '',
-            ]
-        ];
-
-        $data['pages'][] = [
-            'name' => $this->language->get('text_support'),
-            'href' => '',
-            'children' => $support,
             'active' => '',
         ];
 
