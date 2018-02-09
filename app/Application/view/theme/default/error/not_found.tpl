@@ -3,14 +3,13 @@
 <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>404</title>
+    <title><?php echo $heading_title ?></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
     <link rel="shortcut icon" href="img/favicons/favicon.png">
-    <link rel="stylesheet"
-          href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" id="css-main" href="css/app.css">
 </head>
@@ -24,7 +23,7 @@
     </div>
 </div>
 <div class="content pulldown text-muted text-center">
-    <a class="link-effect" href="<?php echo $home ?>"><?php echo $text_home ?></a>
+    <a class="link-effect" href="<?php echo $home ?>"><?php echo $text_homepage ?></a>
 </div>
 </body>
 </html>

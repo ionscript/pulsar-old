@@ -18,7 +18,7 @@ return [
     'error-not-found' => [
         'route' => '/error/not-found',
         'defaults' => [
-            'controller' => 'error-not-found',
+            'controller' => \Application\Error\NotFoundController::class,
             'action' => 'index',
         ],
     ],

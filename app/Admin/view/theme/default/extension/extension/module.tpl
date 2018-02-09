@@ -60,7 +60,7 @@
                                 </td>
                                 <td class="font-w600"><?php echo $extension['name'] ?></td>
                                 <td>
-                                    <span class="label label-<?php echo ($extension['status'] ? 'success' : 'danger')  ?>"><?php echo ($extension['status'] ? 'enabled' : 'disabled')  ?></span>
+                                    <span class="label label-<?php echo ($extension['installed'] && $extension['module'] ? 'success' : 'danger')  ?>"><?php echo ($extension['installed'] && $extension['module'] ? 'enabled' : 'disabled')  ?></span>
                                 </td>
                                 <td class="text-center">
                                     <?php if ($extension['installed']) { ?>

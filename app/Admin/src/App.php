@@ -4,7 +4,7 @@ namespace Admin;
 
 final class App
 {
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.0a';
 
     public function getConfig()
     {

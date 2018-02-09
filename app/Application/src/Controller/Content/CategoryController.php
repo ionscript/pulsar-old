@@ -15,19 +15,6 @@ class CategoryController extends Controller
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 
-        $this->document->addScript('vendor/jquery/dist/jquery.js');
-        $this->document->addScript('vendor/jquery-ui/jquery-ui.js', 'footer');
-        $this->document->addScript('vendor/bootstrap/dist/js/bootstrap.js', 'footer');
-        $this->document->addScript('vendor/jquery.placeholder/jquery.placeholder.js', 'footer');
-        $this->document->addScript('vendor/jquery.appear.bas2k/jquery.appear.js', 'footer');
-        $this->document->addScript('vendor/jquery-slimscroll/jquery.slimscroll.js', 'footer');
-        $this->document->addScript('vendor/jquery-scrollLock/jquery-scrollLock.js', 'footer');
-        $this->document->addScript('vendor/js-cookie/src/js.cookie.js', 'footer');
-        $this->document->addScript('vendor/vide/dist/jquery.vide.js', 'footer');
-
-        $this->document->addScript('js/app.js', 'footer');
-
-
         if ($this->request->hasQuery('page')) {
             $page = $this->request->getQuery('page');
         } else {
@@ -82,7 +69,6 @@ class CategoryController extends Controller
             ];
 
             $post_total = $this->model('content/post')->getTotalPosts($options);
-
             $results = $this->model('content/post')->getPosts($options);
 
             foreach ($results as $id => $result) {
@@ -122,12 +108,10 @@ class CategoryController extends Controller
             }
 
             if ($limit && ceil($post_total / $limit) > $page) {
-                $this->document->addLink($this->url->link('category', 'path=' . $category_info['category_id'] . '&page=' . ($page + 1)), 'next');
+                $this->document->addLink($this->url->link('category', 'path=' . $category_info['id'] . '&page=' . ($page + 1)), 'next');
             }
 
             $data['limit'] = $limit;
-
-            $data['continue'] = $this->url->link('home');
 
             $data['column_left'] = $this->controller('column_left');
             $data['column_right'] = $this->controller('column_right');
@@ -138,10 +122,8 @@ class CategoryController extends Controller
 
             $this->response->setContent($this->view('content/category', $data));
         } else {
-
-            $this->document->setTitle($this->language->get('text_error'));
-
-            $data['continue'] = $this->url->link('home');
+            $this->language->load('error/not_found');
+            $data['heading_title'] = $this->language->get('text_error');
 
             //$this->response->addHeader($this->request->server['SERVER_PROTOCOL'], ' 404 Not Found');
 

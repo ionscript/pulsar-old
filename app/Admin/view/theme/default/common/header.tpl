@@ -52,52 +52,24 @@
     <header id="header-navbar" class="content-mini content-mini-full">
         <!-- Header Navigation Right -->
         <ul class="nav-header pull-right">
+            <li><a class="text-black-op push-5-t pull-right"><i class="fa fa-2x fa-bell"></i></a></li>
             <li>
                 <div class="btn-group">
                     <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-
-                        <img src="img/<?php echo $admin_image; ?>" alt="">
-
-
+                        <img src="img/<?php echo $user['image']; ?>">
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-header">Profile</li>
-                        <li>
-                            <a tabindex="-1" href="base_pages_inbox.php">
-                                <i class="icon-envelope-open pull-right"></i>
-                                <span class="badge badge-primary pull-right">3</span>Inbox
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" href="<?php echo $admin_profile; ?>">
-                                <i class="icon-admin pull-right"></i>
-                                <span class="badge badge-success pull-right">1</span>Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" href="javascript:void(0)">
-                                <i class="icon-settings pull-right"></i>Settings
-                            </a>
-                        </li>
+                        <li><a tabindex="-1" href="<?php echo $user_profile; ?>"><i class="fa fa-user-circle-o pull-right"></i><?php echo $text_profile; ?></a></li>
                         <li class="divider"></li>
-                        <li class="dropdown-header">Actions</li>
-                        <li>
-                            <a tabindex="-1" href="http://i2cart">
-                                <i class="icon-basket pull-right"></i>Store
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" href="base_pages_login.php">
-                                <i class="icon-logout pull-right"></i>Log out
-                            </a>
-                        </li>
+                        <li><a tabindex="-1" href="<?php echo $front; ?>"><i class="fa fa-desktop pull-right"></i><?php echo $text_front; ?></a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="<?php echo $logout; ?>"><i class="fa fa-sign-out pull-right"></i><?php echo $text_logout; ?></a></li>
                     </ul>
                 </div>
             </li>
         </ul>
         <!-- END Header Navigation Right -->
-
         <!-- Header Navigation Left -->
         <ul class="nav-header pull-left">
             <li class="hidden-md hidden-lg">
@@ -116,5 +88,3 @@
         <!-- END Header Navigation Left -->
     </header>
     <!-- END Header -->
-
-        

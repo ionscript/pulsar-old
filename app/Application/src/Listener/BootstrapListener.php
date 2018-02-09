@@ -62,7 +62,7 @@ class BootstrapListener implements ListenerInterface
 
         $languages = $lng;
 
-        if (!array_key_exists($code, $languages)) {
+        if (!array_key_exists($code, $languages) && $request->hasCookie('language')) {
             $code = $request->getCookie('language');
         }
 

@@ -32,13 +32,13 @@ class HeaderController extends Controller
         $data['direction'] = $this->language->get('direction');
 
         $theme = $this->model('system/setting')->getSetting('theme_default');
-        $admin = $this->model('user/user')->getUser($this->session->get('user_id'));
+        $user = $this->model('user/user')->getUser($this->session->get('user_id'));
 
         $data['page_classes'] = trim($theme['theme_default_class']);
 
         $data['theme'] = $theme['theme_default_theme'];
-        $data['admin_image'] = $admin['image'];
-        $data['admin_profile'] = $this->url->link('user/edit', 'token=' . $this->session->get('token') . '&id=' . $admin['id']);
+        $data['user'] = $user;
+        $data['user_profile'] = $this->url->link('user/edit', 'token=' . $this->session->get('token') . '&id=' . $user['id']);
 
         // Layout
         $data['sidebar'] = $this->controller('sidebar');

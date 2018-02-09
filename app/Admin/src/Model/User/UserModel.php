@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     public function addUser($data)
     {
-        $this->db->execute("INSERT INTO `user` SET `group_id` = '" . (int)$data['group_id'] . "',`username` = " . $this->db->escape($data['username']) . ", `salt` = " . $this->db->escape($salt = token(9)) . ", `password` = " . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . ", `firstname` = " . $this->db->escape($data['firstname']) . ", `lastname` = " . $this->db->escape($data['lastname']) . ", `email` = " . $this->db->escape($data['email']) . ", `image` = " . $this->db->escape($data['image']) . ", `status` = '" . (int)$data['status'] . "', date_added = NOW()");
+        $this->db->execute("INSERT INTO `user` SET `group_id` = '" . (int)$data['group_id'] . "',`username` = " . $this->db->escape($data['username']) . ", `password` = " . $this->db->escape(password_hash($data['password'], PASSWORD_DEFAULT)) . ", `firstname` = " . $this->db->escape($data['firstname']) . ", `lastname` = " . $this->db->escape($data['lastname']) . ", `email` = " . $this->db->escape($data['email']) . ", `image` = " . $this->db->escape($data['image']) . ", `ip` = " . $this->db->escape($data['ip']) . ", `status` = '" . (int)$data['status'] . "', date_added = NOW()");
 
         return $this->db->getLastId();
     }
@@ -18,13 +18,13 @@ class UserModel extends Model
         $this->db->execute("UPDATE `user` SET `group_id` = " . (int)$data['group_id'] . ", `username` = " . $this->db->escape($data['username']) . ", `firstname` = " . $this->db->escape($data['firstname']) . ", `lastname` = " . $this->db->escape($data['lastname']) . ", `email` = " . $this->db->escape($data['email']) . ", `image` = " . $this->db->escape($data['image']) . ", `status` = '" . (int)$data['status'] . "' WHERE `id` = '" . (int)$id . "'");
 
         if ($data['password']) {
-            $this->db->execute("UPDATE `user` SET `salt` = " . $this->db->escape($salt = token(9)) . ", `password` = " . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . " WHERE `id` = '" . (int)$id . "'");
+            $this->db->execute("UPDATE `user` SET `password` = " . $this->db->escape(password_hash($data['password'], PASSWORD_DEFAULT)) . " WHERE `id` = '" . (int)$id . "'");
         }
     }
 
     public function editPassword($id, $password)
     {
-        $this->db->execute("UPDATE `user` SET `salt` = " . $this->db->escape($salt = token(9)) . ", `password` = " . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . ", `code` = '' WHERE `id` = '" . (int)$id . "'");
+        $this->db->execute("UPDATE `user` SET `password` = " . $this->db->escape(password_hash($password, PASSWORD_DEFAULT)) . ", `code` = '' WHERE `id` = '" . (int)$id . "'");
     }
 
     public function deleteUser($id)

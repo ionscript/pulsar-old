@@ -16,7 +16,7 @@ class UserModel extends Model
 
         $user_group_info = $this->model('account/usergroup')->getUserGroup($group_id);
 
-        $this->db->execute("INSERT INTO user SET group_id = '" . (int)$group_id . "', language_id = '" . (int)$this->config->get('config_language_id') . "', firstname = " . $this->db->escape($data['firstname']) . ", lastname = " . $this->db->escape($data['lastname']) . ", email = '" . $this->db->escape($data['email']) . "', salt = " . $this->db->escape($salt = token(9)) . ", password = " . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . ", ip = " . $this->db->escape($this->request->getServer('REMOTE_ADDR')) . ", status = '" . (int)!$user_group_info['approval'] . "', date_added = NOW()");
+        $this->db->execute("INSERT INTO user SET group_id = '" . (int)$group_id . "', language_id = '" . (int)$this->config->get('config_language_id') . "', firstname = " . $this->db->escape($data['firstname']) . ", lastname = " . $this->db->escape($data['lastname']) . ", email = '" . $this->db->escape($data['email']) . "', password = " . $this->db->escape(password_hash($data['password'], PASSWORD_DEFAULT)) . ", ip = " . $this->db->escape($this->request->getServer('REMOTE_ADDR')) . ", status = '" . (int)!$user_group_info['approval'] . "', date_added = NOW()");
 
         $user_id = $this->db->getLastId();
 
@@ -34,7 +34,7 @@ class UserModel extends Model
 
     public function editPassword($email, $password)
     {
-        $this->db->execute("UPDATE user SET salt = " . $this->db->escape($salt = token(9)) . ", password = " . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . " WHERE LOWER(email) = " . $this->db->escape(strtolower($email)));
+        $this->db->execute("UPDATE user SET password = " . $this->db->escape(password_hash($password, PASSWORD_DEFAULT)) . " WHERE LOWER(email) = " . $this->db->escape(strtolower($email)));
     }
 
     public function getUser($id)

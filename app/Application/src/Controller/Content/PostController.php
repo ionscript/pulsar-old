@@ -61,10 +61,8 @@ class PostController extends Controller
 
 			$this->response->setContent($this->view('content/post', $data));
 		} else {
-
-			$this->document->setTitle($this->language->get('text_error'));
-
-			$data['continue'] = $this->url->link('home');
+            $this->language->load('error/not_found');
+            $data['heading_title'] = $this->language->get('text_error');
 
 			//$this->response->addHeader($this->request->server['SERVER_PROTOCOL'], ' 404 Not Found');
 

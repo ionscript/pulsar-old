@@ -66,12 +66,12 @@ class HtmlController extends Controller
             }
         }
 
-        if ($this->request->hasPost('module_html_status')) {
-            $data['module_html_status'] = $this->request->getPost('module_html_status');
+        if ($this->request->hasPost('status')) {
+            $data['status'] = $this->request->getPost('status');
         } elseif (!empty($module_info)) {
-            $data['module_html_status'] = $module_info['module_html_status'];
+            $data['status'] = $module_info['status'];
         } else {
-            $data['module_html_status'] = '';
+            $data['status'] = '';
         }
 
         $data['header'] = $this->controller('header');

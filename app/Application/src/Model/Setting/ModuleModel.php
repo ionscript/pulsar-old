@@ -19,8 +19,8 @@ class ModuleModel extends Model
 		
 		if ($query->row) {
 			return json_decode($query->row['setting'], true);
-		} else {
-			return [];
 		}
+
+		return [];
 	}		
 }

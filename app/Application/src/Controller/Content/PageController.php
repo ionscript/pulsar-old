@@ -25,8 +25,6 @@ class PageController extends Controller
 
             $data['description'] = html_entity_decode($page_info['description'], ENT_QUOTES, 'UTF-8');
 
-            $data['continue'] = $this->url->link('home');
-
             $this->model('content/page')->updateViewed($this->request->getQuery('id'));
 
             $data['column_left'] = $this->controller('column_left');
@@ -37,9 +35,7 @@ class PageController extends Controller
             $this->response->setContent($this->view('content/page', $data));
         } else {
             $this->language->load('error/not_found');
-            $this->document->setTitle($this->language->get('text_not_found'));
-
-            $data['continue'] = $this->url->link('common/home');
+            $data['heading_title'] = $this->language->get('text_error');
 
             //$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 

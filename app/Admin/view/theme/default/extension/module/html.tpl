@@ -72,11 +72,11 @@
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <div class="form-material form-material-primary">
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control"
+                                                               type="text"
                                                                name="description[<?php echo $language['id']; ?>][title]"
                                                                value="<?php echo $description[$language['id']]['title']; ?>"
-                                                               minlength="3"
-                                                              required/>
+                                                        />
                                                         <label><?php echo $entry_title; ?></label>
                                                     </div>
                                                 </div>
@@ -105,7 +105,7 @@
                                 <div class="col-xs-12">
                                     <label class="css-input switch switch-sm switch-primary">
                                         <input type="checkbox"
-                                               name="module_html_status" <?php echo $module_html_status ? 'checked' : ''; ?> value="1"><span></span>
+                                               name="status" <?php echo $status ? 'checked' : ''; ?> value="1"><span></span>
                                     </label>
                                 </div>
                             </div>
