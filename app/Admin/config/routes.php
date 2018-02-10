@@ -26,11 +26,11 @@ return [
         ],
     ],
     'filemanager' => [
-        'route' => '/admin/filemanager',
+        'route' => '/admin/filemanager[/:action]',
         'defaults' => [
             'controller' => \Admin\Common\FilemanagerController::class,
             'action' => 'index',
-            'ignore' => true
+//            'ignore' => true
         ],
     ],
     'error-not-found' => [

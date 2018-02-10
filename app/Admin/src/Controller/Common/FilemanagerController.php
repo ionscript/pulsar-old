@@ -12,15 +12,15 @@ class FilemanagerController extends Controller
         $this->language->load('common/filemanager');
 
         if ($this->request->hasQuery('filter_name')) {
-            $filter_name = rtrim(str_replace('*', '', $this->request->getQuery('filter_name')), '/');
+            $filter_name = str_replace('*', '', $this->request->getQuery('filter_name'));
         } else {
             $filter_name = null;
         }
 
         if ($this->request->hasQuery('directory')) {
-            $directory = rtrim($this->image->getDirectory() . '/data/' . str_replace('*', '', $this->request->getQuery('directory')), '/');
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR. str_replace('*', '', $this->request->getQuery('directory'));
         } else {
-            $directory = $this->image->getDirectory() . '/data';
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data';
         }
 
         if ($this->request->hasQuery('page')) {
@@ -34,18 +34,16 @@ class FilemanagerController extends Controller
 
         $data['images'] = [];
 
-        $directory = realpath($directory . '/' . $filter_name);
+        $directory = realpath($directory . DIRECTORY_SEPARATOR . $filter_name);
 
         if ($directory) {
-            // Get directories
-            $directories = glob($directory . '/' . $filter_name . '*', GLOB_ONLYDIR);
+            $directories = glob($directory . DIRECTORY_SEPARATOR . $filter_name . '*', GLOB_ONLYDIR);
 
             if (!$directories) {
                 $directories = [];
             }
 
-            // Get files
-            $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+            $files = glob($directory . DIRECTORY_SEPARATOR . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
 
             if (!$files) {
                 $files = [];
@@ -58,20 +56,23 @@ class FilemanagerController extends Controller
 
         foreach ($images as $image) {
             $name = str_split(basename($image), 14);
+
             if (is_dir($image)) {
                 $url = '';
+
                 if ($this->request->hasQuery('target')) {
                     $url .= '&target=' . $this->request->getQuery('target');
                 }
                 if ($this->request->hasQuery('thumb')) {
                     $url .= '&thumb=' . $this->request->getQuery('thumb');
                 }
+
                 $data['images'][] = [
                     'thumb' => '',
                     'name' => implode(' ', $name),
                     'type' => 'directory',
                     'path' => substr($image, strlen($this->image->getDirectory())),
-                    'href' => $this->url->link('filemanager', 'token=' . $this->session->get('token') . '&directory=' . urlencode(substr($image, strlen($this->image->getDirectory() . '/data'))) . $url, true)
+                    'href' => $this->url->link('filemanager', 'token=' . $this->session->get('token') . '&directory=' . urlencode(substr($image, strlen($this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data'))) . $url, true)
                 ];
             } elseif (is_file($image)) {
                 $data['images'][] = [
@@ -79,7 +80,7 @@ class FilemanagerController extends Controller
                     'name' => implode(' ', $name),
                     'type' => 'image',
                     'path' => substr($image, strlen($this->image->getDirectory())),
-                    'href' => $this->url->base('img/' . substr($image, strlen($this->image->getDirectory())))
+                    'href' => $this->url->base('img' . substr($image, strlen($this->image->getDirectory())))
                 ];
             }
         }
@@ -122,7 +123,7 @@ class FilemanagerController extends Controller
         $url = '';
 
         if ($this->request->hasQuery('directory')) {
-            $pos = strrpos($this->request->getQuery('directory'), '/');
+            $pos = strrpos($this->request->getQuery('directory'), DIRECTORY_SEPARATOR);
 
             if ($pos) {
                 $url .= '&directory=' . urlencode(substr($this->request->getQuery('directory'), 0, $pos));
@@ -193,65 +194,33 @@ class FilemanagerController extends Controller
         }
 
         if ($this->request->hasQuery('directory')) {
-            $directory = rtrim($this->image->getDirectory() . '/data/' . $this->request->getQuery('directory'), '/');
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->request->getQuery('directory');
         } else {
-            $directory = $this->image->getDirectory() . '/data';
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR .  'data';
         }
 
-        if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
+        if (!is_dir($directory)) {
             $json['error'] = $this->language->get('error_directory');
         }
 
         if (!$json) {
             $files = [];
 
-            if (!empty($this->request->getFiles()['file']['name']) && is_array($this->request->getFiles()['file']['name'])) {
-                foreach (array_keys($this->request->getFiles()['file']['name']) as $key) {
-                    $files[] = [
-                        'name' => $this->request->getFiles()['file']['name'][$key],
-                        'type' => $this->request->getFiles()['file']['type'][$key],
-                        'tmp_name' => $this->request->getFiles()['file']['tmp_name'][$key],
-                        'error' => $this->request->getFiles()['file']['error'][$key],
-                        'size' => $this->request->getFiles()['file']['size'][$key]
-                    ];
-                }
+            if ($this->request->hasFiles('file')) {
+                $files = $this->request->getFiles('file');
             }
 
             foreach ($files as $file) {
                 if (is_file($file['tmp_name'])) {
                     $filename = basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8'));
 
-                    if ((strlen($filename) < 3) || (strlen($filename) > 255)) {
+                    $length = strlen($filename);
+
+                    if ($length < 3 || $length > 255) {
                         $json['error'] = $this->language->get('error_filename');
                     }
 
-                    // Allowed file extension types
-                    $allowed = [
-                        'jpg',
-                        'jpeg',
-                        'gif',
-                        'png'
-                    ];
-
-                    if (!in_array(strtolower(substr(strrchr($filename, '.'), 1)), $allowed)) {
-                        $json['error'] = $this->language->get('error_filetype');
-                    }
-
-                    // Allowed file mime types
-                    $allowed = [
-                        'image/jpeg',
-                        'image/pjpeg',
-                        'image/png',
-                        'image/x-png',
-                        'image/gif'
-                    ];
-
-                    if (!in_array($file['type'], $allowed)) {
-                        $json['error'] = $this->language->get('error_filetype');
-                    }
-
-                    // Return any upload error
-                    if ($file['error'] != UPLOAD_ERR_OK) {
+                    if ($file['error'] !== UPLOAD_ERR_OK) {
                         $json['error'] = $this->language->get('error_upload_' . $file['error']);
                     }
                 } else {
@@ -259,7 +228,7 @@ class FilemanagerController extends Controller
                 }
 
                 if (!$json) {
-                    move_uploaded_file($file['tmp_name'], $directory . '/' . $filename);
+                    move_uploaded_file($file['tmp_name'], $directory . DIRECTORY_SEPARATOR . $filename);
                 }
             }
         }
@@ -282,32 +251,36 @@ class FilemanagerController extends Controller
         }
 
         if ($this->request->hasQuery('directory')) {
-            $directory = rtrim($this->image->getDirectory() . '/data/' . $this->request->getQuery('directory'), '/');
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->request->getQuery('directory');
         } else {
-            $directory = $this->image->getDirectory() . '/data';
+            $directory = $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data';
         }
 
-        if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
+        if (!is_dir($directory)) {
             $json['error'] = $this->language->get('error_directory');
         }
 
         if ($this->request->isPost()) {
             $folder = basename(html_entity_decode($this->request->getPost('folder'), ENT_QUOTES, 'UTF-8'));
 
-            if ((strlen($folder) < 3) || (strlen($folder) > 128)) {
+            $length = strlen($folder);
+
+            if ($length < 3 || $length > 128) {
                 $json['error'] = $this->language->get('error_folder');
             }
 
-            if (is_dir($directory . '/' . $folder)) {
+            $dir = $directory . DIRECTORY_SEPARATOR . $folder;
+
+            if (is_dir($dir)) {
                 $json['error'] = $this->language->get('error_exists');
             }
         }
 
         if (!isset($json['error'])) {
-            mkdir($directory . '/' . $folder, 0777);
-            chmod($directory . '/' . $folder, 0777);
+            mkdir($dir, 0777);
+            chmod($dir, 0777);
 
-            @touch($directory . '/' . $folder . '/' . 'index.html');
+            @touch($dir . DIRECTORY_SEPARATOR . 'index.html');
 
             $json['success'] = $this->language->get('text_directory');
         }
@@ -332,7 +305,7 @@ class FilemanagerController extends Controller
         }
 
         foreach ($paths as $path) {
-            if ($path == $this->image->getDirectory() . '/data' || substr(str_replace('\\', '/', realpath($this->image->getDirectory() . $path)), 0, strlen($this->image->getDirectory() . '/data')) != $this->image->getDirectory() . '/data') {
+            if ($path === $this->image->getDirectory() . DIRECTORY_SEPARATOR . 'data') {
                 $json['error'] = $this->language->get('error_delete');
 
                 break;
@@ -341,7 +314,7 @@ class FilemanagerController extends Controller
 
         if (!$json) {
             foreach ($paths as $path) {
-                $path = rtrim($this->image->getDirectory() . $path, '/');
+                $path = $this->image->getDirectory() . $path;
 
                 if (is_file($path)) {
                     unlink($path);
@@ -350,12 +323,12 @@ class FilemanagerController extends Controller
 
                     $path = [$path . '*'];
 
-                    while (count($path) != 0) {
+                    while (count($path) !== 0) {
                         $next = array_shift($path);
 
                         foreach (glob($next) as $file) {
                             if (is_dir($file)) {
-                                $path[] = $file . '/*';
+                                $path[] = $file . DIRECTORY_SEPARATOR . '*';
                             }
                             $files[] = $file;
                         }

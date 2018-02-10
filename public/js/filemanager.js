@@ -29,7 +29,7 @@ $(document).on('click', 'a[data-toggle=\'image\']', function (e) {
         $('#modal-image').remove();
 
         $.ajax({
-            url: '/admin/filemanager?token=' + getURLVar('token') + '&target=' + $element.parent().find('input').attr('id') + '&thumb=' + $element.attr('id'),
+            url: 'admin/filemanager?token=' + getURLVar('token') + '&target=' + $element.parent().find('input').attr('id') + '&thumb=' + $element.attr('id'),
             dataType: 'html',
             beforeSend: function () {
                 $button.prop('disabled', true);

@@ -12,23 +12,18 @@ class UserController extends Controller
     public function indexAction()
     {
         $this->language->load('user/user');
-
         $this->document->setTitle($this->language->get('heading_title'));
-
         $this->getList();
     }
 
     public function addAction()
     {
         $this->language->load('user/user');
-
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->request->isPost() && $this->validateForm()) {
             $this->model('user/user')->addUser($this->request->getPost());
-
             $this->session->set('success', $this->language->get('text_success'));
-
             $this->response->redirect($this->url->link('user', 'token=' . $this->session->get('token')));
         }
 
@@ -38,14 +33,11 @@ class UserController extends Controller
     public function editAction()
     {
         $this->language->load('user/user');
-
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->request->isPost() && $this->validateForm()) {
             $this->model('user/user')->editUser($this->request->getQuery('id'), $this->request->getPost());
-
             $this->session->set('success', $this->language->get('text_success'));
-
             $this->response->redirect($this->url->link('user', 'token=' . $this->session->get('token')));
         }
 
@@ -55,7 +47,6 @@ class UserController extends Controller
     public function deleteAction()
     {
         $this->language->load('user/user');
-
         $this->document->setTitle($this->language->get('heading_title'));
 
         $this->model('user/user');
@@ -75,14 +66,11 @@ class UserController extends Controller
     public function unlockAction()
     {
         $this->language->load('user/user');
-
         $this->document->setTitle($this->language->get('heading_title'));
 
         if ($this->request->hasQuery('email') && $this->validateUnlock()) {
             $this->model('user/user')->deleteLoginAttempts($this->request->getQuery('email'));
-
             $this->session->set('success', $this->language->get('text_success'));
-
             $this->response->redirect($this->url->link('user', 'token=' . $this->session->get('token')));
         }
 
@@ -218,7 +206,6 @@ class UserController extends Controller
         }
 
         $data['placeholder'] = $this->model('tool/image')->resize('no_avatar.jpg', 100, 100);
-        $data['bg'] = 'img/bg/profile.jpg';
 
         // Layout
         $data['header'] = $this->controller('header');
@@ -234,10 +221,6 @@ class UserController extends Controller
             $this->error = $this->language->get('error_permission');
         }
 
-        if ((strlen($this->request->getPost('username')) < 3) || (strlen($this->request->getPost('username')) > 20)) {
-            $this->error = $this->language->get('error_username');
-        }
-
         $user_info = $this->model('user/user')->getUserByUsername($this->request->getPost('username'));
 
         if (!$this->request->hasQuery('id')) {
@@ -250,15 +233,21 @@ class UserController extends Controller
             }
         }
 
-        if ((strlen(trim($this->request->getPost('username'))) < 3) || (strlen(trim($this->request->getPost('username'))) > 96)) {
+        $length = strlen(trim($this->request->getPost('username')));
+
+        if ($length < 3 || $length > 96) {
             $this->error = $this->language->get('error_username');
         }
 
-        if ((strlen(trim($this->request->getPost('firstname'))) < 3) || (strlen(trim($this->request->getPost('firstname'))) > 32)) {
+        $length = strlen(trim($this->request->getPost('firstname')));
+
+        if ($length < 3 || $length > 32) {
             $this->error = $this->language->get('error_firstname');
         }
 
-        if ((strlen(trim($this->request->getPost('lastname'))) < 3) || (strlen(trim($this->request->getPost('lastname'))) > 32)) {
+        $length = strlen(trim($this->request->getPost('lastname')));
+
+        if ($length < 3 || $length > 32) {
             $this->error = $this->language->get('error_lasttname');
         }
 
@@ -298,7 +287,7 @@ class UserController extends Controller
         }
 
         foreach ($this->request->getPost('selected') as $user_id) {
-            if ($this->user->getId() === $user_id) {
+            if ($this->user->getId() == $user_id) {
                 $this->error = $this->language->get('error_user');
             }
         }
@@ -319,17 +308,17 @@ class UserController extends Controller
     {
         $json = [];
 
-        if ($this->request->hasQuery('name') || $this->request->hasQuery('email')) {
+        $name = $email = '';
 
-            $name = $email = '';
+        if ($this->request->hasQuery('name')) {
+            $name = $this->request->getQuery('name');
+        }
 
-            if ($this->request->hasQuery('name')) {
-                $name = $this->request->getQuery('name');
-            }
+        if ($this->request->hasQuery('email')) {
+            $email = $this->request->getQuery('email');
+        }
 
-            if ($this->request->hasQuery('email')) {
-                $email = $this->request->getQuery('email');
-            }
+        if ($name || $email) {
 
             $options = [
                 'name' => $name,

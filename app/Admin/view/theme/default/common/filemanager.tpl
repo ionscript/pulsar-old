@@ -45,7 +45,7 @@
     <div class="modal-footer"><?php echo $pagination; ?></div>
   </div>
 </div>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 <?php if ($target) { ?>
 $('a.thumbnail').on('click', function(e) {
 	e.preventDefault();
@@ -91,7 +91,7 @@ $('input[name=\'search\']').on('keydown', function(e) {
 });
 
 $('#button-search').on('click', function(e) {
-	var url = 'admin/common/filemanager?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>';
+	var url = 'admin/filemanager?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>';
 
 	var filter_name = $('input[name=\'search\']').val();
 
@@ -109,8 +109,8 @@ $('#button-search').on('click', function(e) {
 
 	$('#modal-image').load(url);
 });
-//--></script>
-<script type="text/javascript"><!--
+</script>
+<script type="text/javascript">
 $('#button-upload').on('click', function() {
 	$('#form-upload').remove();
 
@@ -127,7 +127,7 @@ $('#button-upload').on('click', function() {
 			clearInterval(timer);
 
 			$.ajax({
-				url: 'admin/common/filemanager/upload?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>',
+				url: 'admin/filemanager/upload?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>',
 				type: 'post',
 				dataType: 'json',
 				data: new FormData($('#form-upload')[0]),
@@ -179,7 +179,7 @@ $('#button-folder').popover({
 $('#button-folder').on('shown.bs.popover', function() {
 	$('#button-create').on('click', function() {
 		$.ajax({
-			url: 'admin/common/filemanager/folder?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>',
+			url: 'admin/filemanager/folder?token=<?php echo $token; ?>&directory=<?php echo $directory; ?>',
 			type: 'post',
 			dataType: 'json',
 			data: 'folder=' + encodeURIComponent($('input[name=\'folder\']').val()),
@@ -210,7 +210,7 @@ $('#button-folder').on('shown.bs.popover', function() {
 $('#modal-image #button-delete').on('click', function(e) {
 	if (confirm('<?php echo $text_confirm; ?>')) {
 		$.ajax({
-			url: 'admin/common/filemanager/delete?token=<?php echo $token; ?>',
+			url: 'admin/filemanager/delete?token=<?php echo $token; ?>',
 			type: 'post',
 			dataType: 'json',
 			data: $('input[name^=\'path\']:checked'),
@@ -237,4 +237,4 @@ $('#modal-image #button-delete').on('click', function(e) {
 		});
 	}
 });
-//--></script>
+</script>

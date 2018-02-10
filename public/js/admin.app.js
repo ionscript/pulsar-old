@@ -1,3 +1,22 @@
+
+$(document).ready(function () {
+    // Set last page opened on the menu
+    $('#menu a[href]').on('click', function () {
+        sessionStorage.setItem('menu', $(this).attr('href'));
+    });
+
+    if (location.href !== sessionStorage.getItem('menu')) {
+        sessionStorage.removeItem('menu');
+    }
+
+    if (!sessionStorage.getItem('menu')) {
+        $('#menu-dashboard a').addClass('active');
+    } else {
+        $('#menu a[href=\'' + sessionStorage.getItem('menu') + '\']').addClass('active').parents("li").addClass('open');
+    }
+
+});
+
 // App
 var App = function () {
     var $html,

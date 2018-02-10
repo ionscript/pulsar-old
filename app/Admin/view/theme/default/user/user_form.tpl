@@ -9,7 +9,7 @@
             </div>
         <?php } ?>
         <div class="block">
-            <div class="bg-image" style="background-image: url('<?php echo $bg; ?>');">
+            <div class="bg-image" style="background-image: url('img/bg/profile.jpg');">
                 <div class="block-content bg-primary-op text-center overflow-hidden">
                     <div class="push-30-t push animated fadeInDown">
                         <img class="img-avatar img-avatar96 img-avatar-thumb" src="<?php echo $thumb; ?>">
