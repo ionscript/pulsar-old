@@ -9663,7 +9663,7 @@ a.block.block-link-hover3:active {
   content: "";
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  visibility: none;
+  visibility: hidden;
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
@@ -13816,10 +13816,6 @@ div.tagsinput span.tag a:hover {
   vertical-align: middle !important;
 }
 
-/*.css-checkbox {*/
-/*margin: 0*/
-/*}*/
-
 #selected {
     padding-right: 5px;
 }
@@ -13832,15 +13828,6 @@ a {
   content: '';
     padding-right: 0 !important;
 }
-
-/*.form-material.floating > .form-control:-webkit-autofill + label {*/
-    /*font-size: 13px;*/
-    /*font-weight: 600;*/
-    /*cursor: default;*/
-    /*-webkit-transform: translateY(-24px);*/
-    /*-ms-transform: translateY(-24px);*/
-    /*transform: translateY(-24px)*/
-/*}*/
 
 .input-range {
   width: 100%

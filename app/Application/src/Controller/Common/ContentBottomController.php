@@ -20,7 +20,7 @@ class ContentBottomController extends Controller
         if ($this->request->hasQuery('route')) {
             $route = (string)$this->request->getQuery('route');
         } else {
-            $route = 'common/home';
+            $route = '/';
         }
 
         $layout_id = 0;

@@ -12,9 +12,9 @@ class LayoutModel extends Model
 
         if ($query->count) {
             return (int)$query->row['layout_id'];
-        } else {
-            return 0;
         }
+
+        return 0;
     }
 
     public function getLayoutModules($layout_id, $position)

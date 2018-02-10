@@ -62,14 +62,16 @@ class HeaderController extends Controller
         $data['pages'][] = [
             'name' => $this->language->get('text_home'),
             'href' => $this->url->link('home'),
-            'children' => []
+            'children' => [],
+            'active' => ''
         ];
 
         // Blog
         $data['pages'][] = [
             'name' => $this->language->get('text_blog'),
             'href' => $this->url->link('blog'),
-            'children' => []
+            'children' => [],
+            'active' => ''
         ];
 
         // Pages

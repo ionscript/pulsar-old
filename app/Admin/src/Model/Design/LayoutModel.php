@@ -54,8 +54,6 @@ class LayoutModel extends Model
         $this->db->execute("DELETE FROM layout WHERE id = '" . (int)$id . "'");
         $this->db->execute("DELETE FROM layout_route WHERE layout_id = '" . (int)$id . "'");
         $this->db->execute("DELETE FROM layout_module WHERE layout_id = '" . (int)$id . "'");
-        $this->db->execute("DELETE FROM category_to_layout WHERE layout_id = '" . (int)$id . "'");
-        $this->db->execute("DELETE FROM page_to_layout WHERE layout_id = '" . (int)$id . "'");
     }
 
     public function getLayout($id)
@@ -67,9 +65,7 @@ class LayoutModel extends Model
 
     public function getLayouts($data = [])
     {
-        $sql = "SELECT * FROM layout";
-
-        $sql .= " ORDER BY name";
+        $sql = 'SELECT * FROM layout ORDER BY `name`';
 
         if (isset($data['start']) || isset($data['limit'])) {
             if ($data['start'] < 0) {
@@ -80,7 +76,7 @@ class LayoutModel extends Model
                 $data['limit'] = 20;
             }
 
-            $sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+            $sql .= ' LIMIT ' . (int)$data['start'] . ',' . (int)$data['limit'];
         }
 
         $query = $this->db->query($sql);
@@ -97,14 +93,14 @@ class LayoutModel extends Model
 
     public function getLayoutModules($id)
     {
-        $query = $this->db->query("SELECT * FROM layout_module WHERE layout_id = '" . (int)$id . "' ORDER BY position ASC, sort_order ASC");
+        $query = $this->db->query("SELECT * FROM layout_module WHERE layout_id = '" . (int)$id . "' ORDER BY `position` ASC, sort_order ASC");
 
         return $query->rows;
     }
 
     public function getTotalLayouts()
     {
-        $query = $this->db->query("SELECT COUNT(*) AS total FROM layout");
+        $query = $this->db->query('SELECT COUNT(*) AS total FROM `layout`');
 
         return $query->row['total'];
     }
