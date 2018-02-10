@@ -4,4 +4,7 @@ node_modules/
 vendor/
 composer.lock
 composer.phar
-public/img/cache/*
+public/img/cache/
+system/storage/cache/
+system/storage/log/
+system/storage/session/

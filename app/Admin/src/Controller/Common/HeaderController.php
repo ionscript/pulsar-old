@@ -37,8 +37,10 @@ class HeaderController extends Controller
         $data['page_classes'] = trim($theme['theme_default_class']);
 
         $data['theme'] = $theme['theme_default_theme'];
-        $data['user'] = $user;
-        $data['user_profile'] = $this->url->link('user/edit', 'token=' . $this->session->get('token') . '&id=' . $user['id']);
+        $data['image'] = $this->model('tool/image')->resize($user['image'] ?: 'no_avatar.jpg', 25, 25);
+        $data['profile'] = $this->url->link('user/edit', 'token=' . $this->session->get('token') . '&id=' . $user['id']);
+        $data['logout'] = $this->url->link('login/logout');
+        $data['front'] = $this->url->base('home');
 
         // Layout
         $data['sidebar'] = $this->controller('sidebar');

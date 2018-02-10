@@ -22,7 +22,7 @@
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
     <!-- OneUI CSS framework -->
-    <link rel="stylesheet" id="css-main" href="css/app.css">
+    <link rel="stylesheet" id="css-main" href="css/admin.app.css">
 
     <?php if ($theme) { ?>
         <link rel="stylesheet" id="css-theme" href="css/themes/<?php echo $theme; ?>.min.css">
@@ -52,15 +52,14 @@
     <header id="header-navbar" class="content-mini content-mini-full">
         <!-- Header Navigation Right -->
         <ul class="nav-header pull-right">
-            <li><a class="text-black-op push-5-t pull-right"><i class="fa fa-2x fa-bell"></i></a></li>
             <li>
                 <div class="btn-group">
                     <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                        <img src="img/<?php echo $user['image']; ?>">
+                        <img src="<?php echo $image ?>">
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a tabindex="-1" href="<?php echo $user_profile; ?>"><i class="fa fa-user-circle-o pull-right"></i><?php echo $text_profile; ?></a></li>
+                        <li><a tabindex="-1" href="<?php echo $profile; ?>"><i class="fa fa-user-circle-o pull-right"></i><?php echo $text_profile; ?></a></li>
                         <li class="divider"></li>
                         <li><a tabindex="-1" href="<?php echo $front; ?>"><i class="fa fa-desktop pull-right"></i><?php echo $text_front; ?></a></li>
                         <li class="divider"></li>

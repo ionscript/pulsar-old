@@ -156,13 +156,6 @@ CREATE TABLE IF NOT EXISTS `language` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `language`
---
-
-INSERT INTO `language` (`id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
-(1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'en-gb.png', 'en-gb', 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -375,39 +368,6 @@ CREATE TABLE IF NOT EXISTS `setting` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `setting`
---
-
-INSERT INTO `setting` (`id`, `code`, `key`, `value`, `serialized`) VALUES
-(1, 'config', 'config_theme', 'default', 0),
-(2, 'config', 'config_language', 'en-gb', 0),
-(3, 'config', 'config_admin_language', 'en-gb', 0),
-(4, 'config', 'config_limit', '20', 0),
-(5, 'config', 'config_name', 'Pulsar', 0),
-(6, 'config', 'config_email', '', 0),
-(7, 'config', 'config_meta_title', '', 0),
-(8, 'config', 'config_meta_description', '', 0),
-(9, 'config', 'config_meta_keyword', '', 0),
-(10, 'config', 'config_user_group_display', '[\"1\"]', 1),
-(11, 'config', 'config_user_group', '1', 0),
-(12, 'config', 'config_user_search', '1', 0),
-(13, 'config', 'config_user_activity', '1', 0),
-(14, 'config', 'config_user_online', '1', 0),
-(15, 'config', 'config_login_attempts', '5', 0),
-(16, 'config', 'config_mail_smtp_port', '', 0),
-(17, 'config', 'config_mail_smtp_hostname', '', 0),
-(18, 'config', 'config_mail_parameter', '', 0),
-(19, 'config', 'config_mail_secure', '-- None --', 0),
-(20, 'config', 'config_mail_engine', 'mail', 0),
-(21, 'config', 'config_mail_smtp_username', '', 0),
-(22, 'config', 'config_mail_smtp_password', '', 0),
-(23, 'config', 'config_mail_smtp_timeout', '', 0),
-(24, 'config', 'config_compression', '0', 0),
-(25, 'config', 'config_error_display', '1', 0),
-(26, 'config', 'config_error_log', '1', 0),
-(27, 'config', 'config_error_filename', 'error.log', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -430,13 +390,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `group_id`, `username`, `password`, `firstname`, `lastname`, `email`, `image`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', '$2y$10$ioZ8GNFwM06/Drh8uWIqre2UkBvdDR/k8vZYzO1amy2K62gwkeGXu', 'John', 'Parker', 'admin@admin.com', '', '', 1, '2018-02-04 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -450,14 +403,6 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `permission` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_group`
---
-
-INSERT INTO `user_group` (`id`, `approval`, `permission`) VALUES
-(1, 1, '{\"access\":[],\"modify\":[]}'),
-(2, 1, '{\"access\":[],\"modify\":[]}');
 
 -- --------------------------------------------------------
 
@@ -473,14 +418,6 @@ CREATE TABLE IF NOT EXISTS `user_group_description` (
   `description` text NOT NULL,
   PRIMARY KEY (`group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_group_description`
---
-
-INSERT INTO `user_group_description` (`group_id`, `language_id`, `name`, `description`) VALUES
-(1, 1, 'Administrator', ''),
-(2, 1, 'Demonstration', '');
 
 -- --------------------------------------------------------
 

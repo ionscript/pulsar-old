@@ -32,7 +32,7 @@
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
     <!-- OneUI CSS framework -->
-    <link rel="stylesheet" id="css-main" href="css/oneui.css">
+    <link rel="stylesheet" id="css-main" href="css/app.css">
 
     <?php if ($theme) { ?>
         <link rel="stylesheet" id="css-theme" href="css/themes/<?php echo $theme; ?>.min.css">
