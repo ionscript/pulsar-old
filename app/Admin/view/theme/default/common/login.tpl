@@ -11,12 +11,12 @@
     <link rel="shortcut icon" href="img/favicons/favicon.png">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
     <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" id="css-main" href="css/admin.app.css">
     <link rel="stylesheet" id="css-main" href="css/app.css">
-    <link rel="stylesheet" id="css-main" href="css/oneui.css">
     <script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/admin.app.js"></script>
 </head>
 <body>
 <div class="bg-white pulldown">

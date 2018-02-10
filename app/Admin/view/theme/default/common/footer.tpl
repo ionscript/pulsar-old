@@ -12,6 +12,6 @@
 <script type="text/javascript" src="js/autocomplete.js"></script>
 <script type="text/javascript" src="js/filemanager.js"></script>
 <script type="text/javascript" src="js/summernote.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/admin.app.js"></script>
 </body>
 </html>
